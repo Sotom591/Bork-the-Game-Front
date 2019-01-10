@@ -1,19 +1,13 @@
-//store and actions
-import { createStore, combineReducers } from 'redux'
-import playerReducer from './reducers/playerReducer'
 
 
+//action types
+export const MOVE_PLAYER = 'MOVE_PLAYER'
 
 
-
-
-const rootReducer = combineReducers({
-  player: playerReducer
-})
-
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
-
-export default store;
+//action creators
+export function movePlayer(direction){
+  return {
+    type: MOVE_PLAYER,
+    payload: direction // direction === {x, y}
+  }
+}
