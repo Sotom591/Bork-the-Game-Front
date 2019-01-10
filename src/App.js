@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import World from './features/world'
+import World from './containers/World'
 
 class App extends Component {
   render() {

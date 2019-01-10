@@ -1,6 +1,6 @@
 import React from 'react';
-import Player from '../player'
-import Map from '../map'
+import Player from '../components/Player'
+import Map from '../components/Map'
 
 const World = (props) => {
   return(
