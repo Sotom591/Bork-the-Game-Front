@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import pupperWalk from '../pupperWalk.png';
-import { movePlayer } from '../redux/actions'
+import { movePlayer } from '../redux/actions';
+
+// const MAP_HEIGHT = SPRITE_SIZE * 10
 
 class Player extends Component{
 
@@ -10,6 +12,8 @@ class Player extends Component{
       this.handleKeyDown(e)
     })
   }
+
+
 
   handleKeyDown = (e) => {
     e.preventDefault()
@@ -31,25 +35,36 @@ class Player extends Component{
   }
 
   getNewPosition = (direction) =>{
-    const SPRITE_SIZE = 44
     const {x, y} = this.props.player.position;
+    // if(
+    // (x >=0 && x <= MAP_WIDTH - SPRITE_SIZE) && (y >=0 && y <= MAP_HEIGHT - SPRITE_SIZE))
+    // {
     switch(direction){
       case 'WEST':
-        this.props.dispatch( movePlayer({x: (x - SPRITE_SIZE), y}))
+      if (x !== 0){
+        this.props.dispatch( movePlayer({x: (x - SPRITE_SIZE), y}))}
         break;
       case 'EAST':
-        this.props.dispatch( movePlayer({x: (x + SPRITE_SIZE), y}))
+        if(x <= (MAP_WIDTH - SPRITE_SIZE) / 2){
+        this.props.dispatch( movePlayer({x: (x + SPRITE_SIZE), y}))}
         break;
       case 'NORTH':
-        this.props.dispatch( movePlayer({x, y: (y - SPRITE_SIZE)}))
+        if (y !== 0){
+        this.props.dispatch( movePlayer({x, y: (y - SPRITE_SIZE)}))}
         break;
       case 'SOUTH':
-        this.props.dispatch( movePlayer({x, y: (y + SPRITE_SIZE)}))
+        if(y <= (MAP_HEIGHT - SPRITE_SIZE) / 2){
+        this.props.dispatch( movePlayer({x, y: (y + SPRITE_SIZE)}))}
         break;
       default:
         console.log("???")
+      }
     }
-  }
+  //
+  // observeBoundries = () => {
+  //   const {x, y} = this.props.player.position;
+  //   return  dispatch( movePlayer({}))
+  // }
 render(){
   return(
     <div
@@ -59,8 +74,8 @@ render(){
         left: this.props.player.position.x,
         backgroundImage: `url(${pupperWalk})`,
         backgroundPosition: '0 0',
-        width: '44px',
-        height: '49px'
+        width: '42px',
+        height: '44px'
       }}
      />
    )
@@ -68,6 +83,9 @@ render(){
 
 }
 
+const SPRITE_SIZE = 44;
+const MAP_HEIGHT = SPRITE_SIZE * 10;
+const MAP_WIDTH = SPRITE_SIZE * 20;
 
 const mapStateToProps = (state) =>{
   return{

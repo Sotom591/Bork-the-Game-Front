@@ -7,8 +7,8 @@ const World = (props) => {
   <div
     style={{
       position: 'relative',
-      width: '800px',
-      height: '400px',
+      width: '840px',
+      height: '440px',
       margin: '20px auto'
     }}
     >
