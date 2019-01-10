@@ -36,16 +36,13 @@ class Player extends Component{
 
   getNewPosition = (direction) =>{
     const {x, y} = this.props.player.position;
-    // if(
-    // (x >=0 && x <= MAP_WIDTH - SPRITE_SIZE) && (y >=0 && y <= MAP_HEIGHT - SPRITE_SIZE))
-    // {
     switch(direction){
       case 'WEST':
       if (x !== 0){
         this.props.dispatch( movePlayer({x: (x - SPRITE_SIZE), y}))}
         break;
       case 'EAST':
-        if(x <= (MAP_WIDTH - SPRITE_SIZE) / 2){
+        if(x <= (MAP_WIDTH - SPRITE_SIZE) ){
         this.props.dispatch( movePlayer({x: (x + SPRITE_SIZE), y}))}
         break;
       case 'NORTH':
@@ -53,18 +50,14 @@ class Player extends Component{
         this.props.dispatch( movePlayer({x, y: (y - SPRITE_SIZE)}))}
         break;
       case 'SOUTH':
-        if(y <= (MAP_HEIGHT - SPRITE_SIZE) / 2){
+        if(y <= (MAP_HEIGHT - SPRITE_SIZE)){
         this.props.dispatch( movePlayer({x, y: (y + SPRITE_SIZE)}))}
         break;
       default:
         console.log("???")
       }
     }
-  //
-  // observeBoundries = () => {
-  //   const {x, y} = this.props.player.position;
-  //   return  dispatch( movePlayer({}))
-  // }
+
 render(){
   return(
     <div
@@ -84,8 +77,8 @@ render(){
 }
 
 const SPRITE_SIZE = 44;
-const MAP_HEIGHT = SPRITE_SIZE * 10;
-const MAP_WIDTH = SPRITE_SIZE * 20;
+const MAP_HEIGHT = SPRITE_SIZE * 9;
+const MAP_WIDTH = SPRITE_SIZE * 18;
 
 const mapStateToProps = (state) =>{
   return{
