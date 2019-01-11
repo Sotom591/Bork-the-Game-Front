@@ -3,9 +3,11 @@ import React from 'react';
 
 const MonsterHPBar = (props) => {
   return(
-
-    <div className='monsterHP'>
-      monster HP
+    <div className="monsterBar">
+      <div className="monsterHP">
+        <div className="monsterHit">
+        </div>
+      </div>
     </div>
   )
 }

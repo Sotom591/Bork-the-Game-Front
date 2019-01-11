@@ -3,8 +3,11 @@ import React from 'react';
 
 const PlayerHPBar = (props) => {
   return(
-    <div className='playerHP'>
-      player HP
+    <div className='playerBar'>
+    <div className="playerHP">
+      <div className="playerHit">
+      </div>
+    </div>
     </div>
   )
 }
