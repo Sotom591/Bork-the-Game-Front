@@ -9,7 +9,7 @@ const World = (props) => {
       position: 'relative',
       width: '880px',
       height: '440px',
-      margin: '20px auto'
+      margin: '5px auto'
     }}
     >
     <Map />
