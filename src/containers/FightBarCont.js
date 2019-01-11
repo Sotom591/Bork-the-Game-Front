@@ -1,6 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FightBar from '../components/FightBar'
+// import FightBar from '../components/FightBar'
+import PlayerAttackMoves from '../components/PlayerAttackMoves.js'
+import PlayerFightCard from '../components/PlayerFightCard.js'
+import PlayerHPBar from '../components/PlayerHPBar.js'
+import MonsterFightCard from '../components/MonsterFightCard.js'
+import MonsterHPBar from '../components/MonsterHPBar.js'
+
+
 
 
 const FightBarCont = (props) => {
@@ -16,7 +23,25 @@ const FightBarCont = (props) => {
       margin: '5px auto'
     }}
     >
-    <FightBar />
+      <div
+         className='fightBar'
+         style={{
+           position: 'relative',
+           top: '0px',
+           left: '0px',
+           width: '880px',
+           height: '240px',
+           backgroundColor: 'tan',
+           border: '4px solid white'
+        }}
+        >
+        <MonsterFightCard/>
+        <MonsterHPBar/>
+        <PlayerFightCard/>
+        <PlayerHPBar/>
+        <PlayerAttackMoves/>
+
+      </div>
     </div>
        : null}
     </div>
