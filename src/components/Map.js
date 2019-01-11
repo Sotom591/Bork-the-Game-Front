@@ -3,6 +3,7 @@ import React from 'react'
 const Map = (props) => {
   return(
     <div
+      className='worldMap'
       style={{
         position: 'relative',
         top: '0px',

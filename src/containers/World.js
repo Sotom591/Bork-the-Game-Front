@@ -1,6 +1,7 @@
 import React from 'react';
-import Player from '../components/Player'
-import Map from '../components/Map'
+import Player from '../components/Player';
+import Map from '../components/Map';
+import Monsters from '../components/Monsters';
 
 const World = (props) => {
   return(
@@ -14,8 +15,10 @@ const World = (props) => {
     >
     <Map />
     <Player />
+    <Monsters />
   </div>
   )
 }
+
 
 export default World

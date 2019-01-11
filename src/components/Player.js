@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import pupperWalk from '../tiles/pupperWalk.png';
+import pupperWalk from '../images/pupperWalk.png';
 import { movePlayer } from '../redux/actions';
 
 // const MAP_HEIGHT = SPRITE_SIZE * 10
@@ -80,7 +80,7 @@ const MAP_WIDTH = SPRITE_SIZE * 19;
 
 const mapStateToProps = (state) =>{
   return{
-    ...state
+    player: state.player
   }
 }
 

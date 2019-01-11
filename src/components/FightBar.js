@@ -1,4 +1,10 @@
 import React from 'react'
+import AttackMoves from './AttackMoves'
+import FightCard from './FightCard'
+import HPBar from './HPBar'
+// import AttackMovesCont from '../containers/AttackMovesCont'
+// import FightCardCont from '../containers/FightCardCont'
+// import HPCont from '../containers/HPCont'
 
 const FightBar = (props) => {
   return(
@@ -13,8 +19,13 @@ const FightBar = (props) => {
         backgroundColor: 'tan',
         border: '4px solid white'
       }}
-    />
+    >
+      <AttackMoves />
+      <FightCard />
+      <HPBar />
+    </div>
   )
 }
+
 
 export default FightBar;
