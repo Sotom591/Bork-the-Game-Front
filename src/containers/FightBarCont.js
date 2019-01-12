@@ -18,7 +18,7 @@ const FightBarCont = (props) => {
   <div
     style={{
       position: 'relative',
-      width: '880px',
+      width: '888px',
       height: '240px',
       margin: '5px auto'
     }}
@@ -29,10 +29,10 @@ const FightBarCont = (props) => {
            position: 'relative',
            top: '0px',
            left: '0px',
-           width: '880px',
+           width: '888px',
            height: '240px',
            backgroundColor: 'tan',
-           border: '4px solid white'
+           border: '4px solid black'
         }}
         >
         <MonsterFightCard/>
