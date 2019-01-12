@@ -3,8 +3,7 @@
 }
 
 .floor{
-  background-color: green;
-  /* background-image: url('./images/floortile1.png') */
+  background-image: url('./images/floortile1.png')
 }
 
 .wall{
@@ -12,5 +11,9 @@
 }
 
 .table{
-  background-image: url('./images/perftabletrans.png')
+  background-image: url('./images/tinytranstable.png')
+}
+
+.door{
+  background-image: url('./images/door.png')
 }

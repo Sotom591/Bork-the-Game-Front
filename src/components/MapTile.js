@@ -27,7 +27,7 @@ const MapTile = (props) =>{
         width: SPRITE_SIZE
       }}
     >
-      {props.tile}
+    |
     </div>
   )
 }
