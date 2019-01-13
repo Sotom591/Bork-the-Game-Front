@@ -3,8 +3,6 @@ import { SPRITE_SIZE } from '../constants.js'
 import '../worldStyles.css'
 
 const MapTile = (props) =>{
-  console.log(props)
-
   const getTileType = (type) =>{
     switch(type){
       case 0:
