@@ -1,6 +1,6 @@
 import { MOVE_PLAYER } from '../actions';
 
-const spriteReducer = (state = '0px, 0px', action) => {
+const spriteReducer = (state = {a: 0, b: 0}, action) => {
   console.log(state)
   switch (action.type) {
     case MOVE_PLAYER:

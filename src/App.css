@@ -1,5 +1,5 @@
 
-/* 
+/*
 .App {
   text-align: center;
 } */
@@ -12,6 +12,7 @@ grid-template-rows: 72% 10% 18%;
 
 
 .playerPic{
+  text-align: center;
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -20,6 +21,7 @@ grid-template-rows: 72% 10% 18%;
 
 
 .monsterPic{
+  text-align: center;
   grid-column-start: 4;
   grid-column-end: 4;
   grid-row-start: 1;
@@ -105,6 +107,7 @@ grid-template-rows: 72% 10% 18%;
 }
 
 .playerMoves{
+  text-align: center;
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 3;

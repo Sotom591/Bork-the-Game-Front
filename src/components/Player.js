@@ -33,36 +33,48 @@ class Player extends Component{
     }
   }
 
-  getNewPosition = (direction, walkIndex) =>{
-    const indexWalk = this.props.player.indexWalk;
+  getNewPosition = (direction) =>{
+    // const aIndex = this.props.player.spritepx.a
+
     const {x, y} = this.props.player.position;
     switch(direction){
       case 'WEST':
       if (x !== 0){
-      this.props.dispatch( movePlayer({x: (x - SPRITE_SIZE), y}, `0px ${SPRITE_SIZE * 3.7}px`, indexWalk))}
+      this.props.dispatch(
+        movePlayer({x: (x - SPRITE_SIZE), y},
+        {a:`0px`, b:`${SPRITE_SIZE*3.7}px`}
+      ))}
         break;
       case 'EAST':
         if(x <= (MAP_WIDTH - SPRITE_SIZE) ){
-        this.props.dispatch( movePlayer({x: (x + SPRITE_SIZE), y}, `0px ${SPRITE_SIZE * 2.3}px`, indexWalk))}
+        this.props.dispatch(
+          movePlayer({x: (x + SPRITE_SIZE), y},
+          {a:`0px`, b:`${SPRITE_SIZE*2.3}px`}
+        ))}
         break;
       case 'NORTH':
         if (y !== 0){
-        this.props.dispatch( movePlayer({x, y: (y - SPRITE_SIZE)}, `0px ${SPRITE_SIZE * 1}px`, indexWalk))}
+        this.props.dispatch(
+          movePlayer({x, y: (y - SPRITE_SIZE)},
+          {a:`0px`, b:`${SPRITE_SIZE*1}px`}
+        ))}
         break;
       case 'SOUTH':
         if(y <= (MAP_HEIGHT - SPRITE_SIZE)){
-        this.props.dispatch( movePlayer({x, y: (y + SPRITE_SIZE)}, `0px ${SPRITE_SIZE * 0}px`, indexWalk))}
+        this.props.dispatch(
+          movePlayer({x, y: (y + SPRITE_SIZE)},
+          {a:`0px`, b:`${SPRITE_SIZE*0}px`}
+        ))}
         break;
       default:
         console.log("???")
       }
     }
 
-  getWalkIndex = () =>{
-
-    const index = this.props.player.walkIndex
-    return  index >=3 ? 0 : index + 1
-  }
+  // getWalkIndex = () =>{
+  // return this.props.player.spritepx.a >=3 ? 0 : this.props.player.spritepx.a + 1
+  // aIndex >= 3 ? 0 : aIndex +1
+  // }
 
 render(){
   return(
@@ -72,7 +84,7 @@ render(){
         top: this.props.player.position.y,
         left: this.props.player.position.x,
         backgroundImage: `url(${pupperWalk})`,
-        backgroundPosition: `${this.props.player.spritepx}`,
+        backgroundPosition: `${this.props.player.spritepx.a} ${this.props.player.spritepx.b}`,
         width: '48px',
         height: '44px'
       }}
