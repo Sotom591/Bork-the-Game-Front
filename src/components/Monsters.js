@@ -13,54 +13,6 @@ import { moveNoodles} from '../redux/actions';
 
 class Monsters extends Component {
 
-//   moveRandomizer = () => {
-//     setInterval()
-//
-//     switch(){
-//
-//       case '1':
-//         return this.moveMonster('WEST')
-//       case '2':
-//         return this.moveMonster('EAST')
-//       case '3':
-//         return this.moveMonster('NORTH')
-//       case '4':
-//         return this.moveMonster('SOUTH')
-//       default:
-//         console.log("rwar")
-//     }
-//   }
-// const moveMonster = (direction) =>{
-//   const {x, y} = this.props.noodles.position;
-//   switch(direction){
-//     case 'WEST':
-//     if (x !== 0){
-//     this.props.dispatch(
-//       moveNoodles({x: (x - NOODLES_SIZE), y}
-//     ))}
-//       break;
-//     case 'EAST':
-//       if(x <= (MAP_WIDTH - NOODLES_SIZE) ){
-//       this.props.dispatch(
-//         moveNoodles({x: (x + NOODLES_SIZE), y}
-//       ))}
-//       break;
-//     case 'NORTH':
-//       if (y !== 0){
-//       this.props.dispatch(
-//         moveNoodles({x, y: (y - NOODLES_SIZE)}
-//       ))}
-//       break;
-//     case 'SOUTH':
-//       if(y <= (MAP_HEIGHT - NOODLES_SIZE)){
-//       this.props.dispatch(
-//         moveNoodles({x, y: (y + NOODLES_SIZE)}
-//       ))}
-//       break;
-//     default:
-//       console.log("???")
-//     }
-// }
 
 componentDidMount(){
   this.startMonsters()
@@ -72,26 +24,43 @@ startMonsters = () =>{
 
 monsterLogic = () =>{
   const {x, y} = this.props.noodles.position;
-  // if (x !== 0){
-  //     this.props.dispatch(
-  //       moveNoodles({x: (x - NOODLES_SIZE), y}
-  //     ))}
-
-  if(x <= (MAP_WIDTH - NOODLES_SIZE) ){
-    return this.props.dispatch(
+  // console.log(this.props.player.x)
+  // console.log(this.props.player.y)
+  if(x < this.props.player.position.x){
+    this.props.dispatch(
       moveNoodles({x: (x + NOODLES_SIZE), y}
-    ))}
+    ))
+  }
+  if(x > this.props.player.position.x){
+    this.props.dispatch(
+      moveNoodles({x: (x - NOODLES_SIZE), y}
+    ))
+  }
+  //
+  // if(x <= (MAP_WIDTH - NOODLES_SIZE) ){
+  //   return this.props.dispatch(
+  //     moveNoodles({x: (x + NOODLES_SIZE), y}
+  //   ))}
+  if(y < this.props.player.position.y){
+    this.props.dispatch(
+      moveNoodles({x, y: (y + NOODLES_SIZE)}
+    ))
+  }
 
-  // if (y !== 0){
-  //     this.props.dispatch(
-  //       moveNoodles({x, y: (y - NOODLES_SIZE)}
-  //     ))}
+  if(y > this.props.player.position.y){
+    this.props.dispatch(
+      moveNoodles({x, y: (y - NOODLES_SIZE)}
+    ))
+  }
 
-  if(y <= (MAP_HEIGHT - NOODLES_SIZE)){
-      this.props.dispatch(
-        moveNoodles({x, y: (y + NOODLES_SIZE)}
-      ))}
 }
+
+
+//   if(y <= (MAP_HEIGHT - NOODLES_SIZE)){
+//       this.props.dispatch(
+//         moveNoodles({x, y: (y + NOODLES_SIZE)}
+//       ))}
+// }
 
 render(){
   console.log(this.props)
@@ -114,7 +83,8 @@ render(){
 const mapStateToProps = (state) =>{
   console.log(state)
   return{
-    noodles: state.noodles
+    noodles: state.noodles,
+    player: state.player
   }
 }
 

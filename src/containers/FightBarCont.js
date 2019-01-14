@@ -13,7 +13,10 @@ import MonsterHPBar from '../components/MonsterHPBar.js'
 
 const FightBarCont = (props) => {
 
-
+const checkCollision = () => {
+  if(props.player.position.x === props.noodles.position.x && props.player.position.y === props.noodles.position.y){
+  return true}
+}
 // const checkCollision = () =>{
   // const {x, y} = props.noodles.position
   // debugger
@@ -26,7 +29,7 @@ const FightBarCont = (props) => {
 // }
   return(
   <div>
-  {props.player.position.x === props.noodles.position.x && props.player.position.y === props.noodles.position.y ?
+  {checkCollision() ?
   <div
     style={{
       position: 'relative',
