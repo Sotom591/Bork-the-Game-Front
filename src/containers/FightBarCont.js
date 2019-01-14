@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { SPRITE_SIZE, NOODLES_SIZE } from '../constants.js'
 // import FightBar from '../components/FightBar'
 import PlayerAttackMoves from '../components/PlayerAttackMoves.js'
 import PlayerFightCard from '../components/PlayerFightCard.js'
@@ -12,9 +13,20 @@ import MonsterHPBar from '../components/MonsterHPBar.js'
 
 const FightBarCont = (props) => {
 
+
+// const checkCollision = () =>{
+  // const {x, y} = props.noodles.position
+  // debugger
+  // const xCoords = ((x + 36/2) >= props.player.position.x &&
+  // (x + 36/2) <= (props.player.position.x + 22))
+  //
+  // const yCoords = ((y + 60/2) >= props.player.position.y &&
+  // (y + 60/2) <= (props.player.position.y + 22))
+  // console.log(xCoords, yCoords)
+// }
   return(
   <div>
-  {props.player.position.x === props.monster1.position.x  && props.player.position.y === props.monster1.position.y ?
+  {props.player.position.x === props.noodles.position.x && props.player.position.y === props.noodles.position.y ?
   <div
     style={{
       position: 'relative',

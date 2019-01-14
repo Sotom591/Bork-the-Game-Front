@@ -2,7 +2,7 @@
 
 //action types
 export const MOVE_PLAYER = 'MOVE_PLAYER'
-export const MOVE_MONSTER1 = 'MOVE_MONSTER1'
+export const MOVE_NOODLES = 'MOVE_NOODLES'
 // export const PLAYER_LOCATION = 'PLAYER_LOCATION'
 
 
@@ -18,9 +18,9 @@ export function movePlayer(direction, spritepx, indexWalk){
   }
 }
 
-export function moveMonster1(direction){
+export function moveNoodles(direction){
   return{
-    type: MOVE_MONSTER1,
+    type: MOVE_NOODLES,
     payload: direction
   }
 }

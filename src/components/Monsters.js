@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import monster1 from '../images/monster1.png';
-import { MONSTER1_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../constants.js'
-import { moveMonster1} from '../redux/actions';
+import noodles from '../images/angrynoodlest.png';
+import { NOODLES_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../constants.js'
+import { moveNoodles} from '../redux/actions';
 
 
 
@@ -31,30 +31,30 @@ class Monsters extends Component {
 //     }
 //   }
 // const moveMonster = (direction) =>{
-//   const {x, y} = this.props.monster1.position;
+//   const {x, y} = this.props.noodles.position;
 //   switch(direction){
 //     case 'WEST':
 //     if (x !== 0){
 //     this.props.dispatch(
-//       moveMonster1({x: (x - MONSTER1_SIZE), y}
+//       moveNoodles({x: (x - NOODLES_SIZE), y}
 //     ))}
 //       break;
 //     case 'EAST':
-//       if(x <= (MAP_WIDTH - MONSTER1_SIZE) ){
+//       if(x <= (MAP_WIDTH - NOODLES_SIZE) ){
 //       this.props.dispatch(
-//         moveMonster1({x: (x + MONSTER1_SIZE), y}
+//         moveNoodles({x: (x + NOODLES_SIZE), y}
 //       ))}
 //       break;
 //     case 'NORTH':
 //       if (y !== 0){
 //       this.props.dispatch(
-//         moveMonster1({x, y: (y - MONSTER1_SIZE)}
+//         moveNoodles({x, y: (y - NOODLES_SIZE)}
 //       ))}
 //       break;
 //     case 'SOUTH':
-//       if(y <= (MAP_HEIGHT - MONSTER1_SIZE)){
+//       if(y <= (MAP_HEIGHT - NOODLES_SIZE)){
 //       this.props.dispatch(
-//         moveMonster1({x, y: (y + MONSTER1_SIZE)}
+//         moveNoodles({x, y: (y + NOODLES_SIZE)}
 //       ))}
 //       break;
 //     default:
@@ -63,33 +63,33 @@ class Monsters extends Component {
 // }
 
 componentDidMount(){
-  this.moveRandomizer()
+  this.startMonsters()
 }
 
-moveRandomizer = () =>{
+startMonsters = () =>{
   setInterval(this.monsterLogic, 2000)
 }
 
 monsterLogic = () =>{
-  const {x, y} = this.props.monster1.position;
+  const {x, y} = this.props.noodles.position;
   // if (x !== 0){
   //     this.props.dispatch(
-  //       moveMonster1({x: (x - MONSTER1_SIZE), y}
+  //       moveNoodles({x: (x - NOODLES_SIZE), y}
   //     ))}
 
-  if(x <= (MAP_WIDTH - MONSTER1_SIZE) ){
+  if(x <= (MAP_WIDTH - NOODLES_SIZE) ){
     return this.props.dispatch(
-      moveMonster1({x: (x + MONSTER1_SIZE), y}
+      moveNoodles({x: (x + NOODLES_SIZE), y}
     ))}
 
   // if (y !== 0){
   //     this.props.dispatch(
-  //       moveMonster1({x, y: (y - MONSTER1_SIZE)}
+  //       moveNoodles({x, y: (y - NOODLES_SIZE)}
   //     ))}
 
-  if(y <= (MAP_HEIGHT - MONSTER1_SIZE)){
+  if(y <= (MAP_HEIGHT - NOODLES_SIZE)){
       this.props.dispatch(
-        moveMonster1({x, y: (y + MONSTER1_SIZE)}
+        moveNoodles({x, y: (y + NOODLES_SIZE)}
       ))}
 }
 
@@ -99,12 +99,12 @@ render(){
     <div
     style={{
       position: 'absolute',
-      top: this.props.monster1.position.y,
-      left: this.props.monster1.position.x,
-      backgroundImage: `url(${monster1})`,
+      top: this.props.noodles.position.y,
+      left: this.props.noodles.position.x,
+      backgroundImage: `url(${noodles})`,
       backgroundPosition: '0 0',
-      width: '36px',
-      height: '60px'
+      width: '46px',
+      height: '48px'
     }}
     />
     )
@@ -114,7 +114,7 @@ render(){
 const mapStateToProps = (state) =>{
   console.log(state)
   return{
-    monster1: state.monster1
+    noodles: state.noodles
   }
 }
 

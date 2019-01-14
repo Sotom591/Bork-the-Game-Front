@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
     spritepx: spriteReducer,
     // indexWalk: indexReducer
   }),
-  monster1: combineReducers({
+  noodles: combineReducers({
     position: monstMovementReducer
   })
 })
