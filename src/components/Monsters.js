@@ -15,52 +15,36 @@ class Monsters extends Component {
 
 
 componentDidMount(){
-  this.startMonsters()
+  this.movementInterval()
+  // this.movementInterval = setInterval(this.monsterLogic, 2000)
 }
-
-startMonsters = () =>{
+//
+movementInterval = () =>{
   setInterval(this.monsterLogic, 2000)
 }
 
 monsterLogic = () =>{
   const {x, y} = this.props.noodles.position;
-  // console.log(this.props.player.x)
-  // console.log(this.props.player.y)
+
   if(x < this.props.player.position.x){
     this.props.dispatch(
       moveNoodles({x: (x + NOODLES_SIZE), y}
-    ))
-  }
+    )) }
   if(x > this.props.player.position.x){
     this.props.dispatch(
       moveNoodles({x: (x - NOODLES_SIZE), y}
-    ))
-  }
-  //
-  // if(x <= (MAP_WIDTH - NOODLES_SIZE) ){
-  //   return this.props.dispatch(
-  //     moveNoodles({x: (x + NOODLES_SIZE), y}
-  //   ))}
+    )) }
+
   if(y < this.props.player.position.y){
     this.props.dispatch(
       moveNoodles({x, y: (y + NOODLES_SIZE)}
-    ))
-  }
+    )) }
 
   if(y > this.props.player.position.y){
     this.props.dispatch(
       moveNoodles({x, y: (y - NOODLES_SIZE)}
-    ))
-  }
-
+    )) }
 }
-
-
-//   if(y <= (MAP_HEIGHT - NOODLES_SIZE)){
-//       this.props.dispatch(
-//         moveNoodles({x, y: (y + NOODLES_SIZE)}
-//       ))}
-// }
 
 render(){
   console.log(this.props)
