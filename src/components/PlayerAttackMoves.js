@@ -7,6 +7,7 @@ class PlayerAttackMoves extends Component{
 
   componentDidMount(){
     this.props.dispatch(fetchingPlayer())
+    console.log(this.props)
   }
   render(){
     return(

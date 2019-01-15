@@ -37,14 +37,16 @@ export function moveNoodles(direction){
 // }
 
 export function fetchingMonsters(){
-  return dispatch =>{
-    return fetch('http://localhost:3001/monsters')
+  return (dispatch) =>{
+    fetch('http://localhost:3001/monsters')
     .then(res => res.json())
-    .then(monsters => dispatch(fetchedMonsters(monsters)))
+    .then(monsters => {
+      dispatch(fetchedMonsters(monsters))
+    })
   }
 }
 
-function fetchedMonsters(monsters){
+export function fetchedMonsters(monsters){
   return{
     type: FETCHED_MONSTERS,
     monsters
@@ -52,14 +54,16 @@ function fetchedMonsters(monsters){
 }
 
 export function fetchingPlayer(){
-  return dispatch =>{
-    return fetch('http://localhost:3001/players')
+  return (dispatch) =>{
+    fetch('http://localhost:3001/players')
     .then(res => res.json())
-    .then(player => dispatch(fetchedPlayer(player)))
+    .then(player => {
+      dispatch(fetchedPlayer(player))
+    })
   }
 }
 
-function fetchedPlayer(player){
+export function fetchedPlayer(player){
   return{
     type: FETCHED_PLAYER,
     player
