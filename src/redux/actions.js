@@ -30,8 +30,8 @@ export function moveMonster(direction){
   }
 }
 
-export function decMonsterHp(hp){
-  return{
+export function decMonsterHp(monsterId){
+  return {
     type: DMG_TO_MON,
     hp
   }
