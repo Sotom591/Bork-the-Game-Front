@@ -30,12 +30,15 @@ export function moveMonster(direction){
   }
 }
 
-export function decMonsterHp(monsterId){
+export function decMonsterHp(monsterId, dmg){
   return {
     type: DMG_TO_MON,
-    hp
+    monsterId,
+    payload: dmg
   }
 }
+
+
 // export function playerLocation(facing){
 //   return{
 //     type: PLAYER_LOCATION,

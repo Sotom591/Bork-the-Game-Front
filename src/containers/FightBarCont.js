@@ -27,9 +27,9 @@ checkCollision = () => {
 }
 
 dmgMonster = (attack) => {
-  let hitDmg = this.props.monsters.data[0].hp - attack.dmg
-  this.props.dispatch(decMonsterHp(hitDmg))
-  console.log(hitDmg)
+  // let hitDmg = this.props.monsters.data[1].hp - attack.dmg
+  this.props.dispatch(decMonsterHp(2, attack.dmg))
+  // console.log(hitDmg)
 
 }
 
