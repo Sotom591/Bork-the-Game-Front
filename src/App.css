@@ -50,7 +50,6 @@ grid-template-rows: 72% 10% 18%;
 }
 .playerHP {
   background: #c54;
-  width: 100%;
   height: 10px;
   position: relative;
 
@@ -88,7 +87,6 @@ grid-template-rows: 72% 10% 18%;
 }
 .monsterHP {
   background: #c54;
-  width: 100%;
   height: 10px;
   position: relative;
 

@@ -1,38 +1,22 @@
 import { combineReducers } from 'redux';
-import movementReducer from './movementReducer';
+import playerMovementReducer from './playerMovementReducer';
 import monstMovementReducer from './monstMovementReducer';
-import spriteReducer from './spriteReducer';
+import playerSpriteReducer from './playerSpriteReducer';
 import monsterDataReducer from './monsterDataReducer';
 import playerDataReducer from './playerDataReducer';
+import monsterHpReducer from './monsterHpReducer';
 // import indexReducer from './indexReducer'
 
 const rootReducer = combineReducers({
   player: combineReducers({
-    position: movementReducer,
-    spritepx: spriteReducer,
+    position: playerMovementReducer,
+    spritepx: playerSpriteReducer,
     data: playerDataReducer,
-  }),
-  noodles: combineReducers({
-    position: monstMovementReducer,
   }),
   monsters: combineReducers({
     data: monsterDataReducer,
+    position: monstMovementReducer
   })
 })
 
 export default rootReducer
-
-
-// const rootReducer = combineReducers({
-//   player: combineReducers({
-//     position: movementReducer,
-//     spritepx: spriteReducer,
-//     data: playerDataReducer
-//   }),
-//   noodles: combineReducers({
-//     position: monstMovementReducer
-//   }),
-//   monsters: combineReducers({
-//     data: monsterDataReducer
-//   )}
-// })

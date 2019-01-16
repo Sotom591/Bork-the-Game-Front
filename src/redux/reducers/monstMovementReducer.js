@@ -1,12 +1,10 @@
-import { MOVE_NOODLES } from '../actions';
+import { MOVE_MONSTER } from '../actions';
 
 
- // {x: 0, y: 0}
-const monstMovementReducer = (state = {x: 0, y: 0}, action) => {
+const monstMovementReducer = (state = {x: 88, y: 88}, action) => {
   switch (action.type) {
-    case MOVE_NOODLES:
-      console.log(action.payload)
-      return action.payload // payload is new {x, y}
+    case MOVE_MONSTER:
+      return action.payload
     default:
       return state;
   }

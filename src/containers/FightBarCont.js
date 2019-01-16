@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SPRITE_SIZE, NOODLES_SIZE } from '../constants.js'
+// import { SPRITE_SIZE, MONSTER_SIZE } from '../constants.js'
 // import FightBar from '../components/FightBar'
+import { fetchingPlayer, fetchingMonsters, decMonsterHp } from '../redux/actions';
+
 import PlayerAttackMoves from '../components/PlayerAttackMoves.js'
 import PlayerFightCard from '../components/PlayerFightCard.js'
 import PlayerHPBar from '../components/PlayerHPBar.js'
@@ -11,29 +13,36 @@ import MonsterHPBar from '../components/MonsterHPBar.js'
 
 
 
-const FightBarCont = (props) => {
+class FightBarCont extends Component{
 
-const checkCollision = () => {
-  if(props.player.position.x === props.noodles.position.x && props.player.position.y === props.noodles.position.y){
+
+  componentDidMount(){
+    this.props.dispatch(fetchingPlayer())
+    this.props.dispatch(fetchingMonsters())
+  }
+
+checkCollision = () => {
+  if(this.props.player.position.x === this.props.monsters.position.x && this.props.player.position.y === this.props.monsters.position.y){
   return true}
 }
-// const checkCollision = () =>{
-  // const {x, y} = props.noodles.position
-  // debugger
-  // const xCoords = ((x + 36/2) >= props.player.position.x &&
-  // (x + 36/2) <= (props.player.position.x + 22))
-  //
-  // const yCoords = ((y + 60/2) >= props.player.position.y &&
-  // (y + 60/2) <= (props.player.position.y + 22))
-  // console.log(xCoords, yCoords)
-// }
+
+dmgMonster = (attack) => {
+  let hitDmg = this.props.monsters.data[0].hp - attack.dmg
+  this.props.dispatch(decMonsterHp(hitDmg))
+  console.log(hitDmg)
+
+}
+
+
+render(){
+
   return(
   <div>
-  {checkCollision() ?
+  {this.checkCollision() ?
   <div
     style={{
       position: 'relative',
-      width: '888px',
+      width: '880px',
       height: '240px',
       margin: '5px auto'
     }}
@@ -44,17 +53,17 @@ const checkCollision = () => {
            position: 'relative',
            top: '0px',
            left: '0px',
-           width: '888px',
+           width: '880px',
            height: '240px',
            backgroundColor: 'tan',
            border: '4px solid black'
         }}
         >
         <MonsterFightCard/>
-        <MonsterHPBar/>
+        <MonsterHPBar  hp={this.props.monsters.data[0].hp}/>
         <PlayerFightCard/>
-        <PlayerHPBar/>
-        <PlayerAttackMoves/>
+        <PlayerHPBar hp={this.props.player.data.hp}/>
+        <PlayerAttackMoves dmgMonster={this.dmgMonster} attack={this.props.player.data.player_attacks.filter(attack => attack.id !==3)}/>
 
       </div>
     </div>
@@ -63,12 +72,24 @@ const checkCollision = () => {
   )
 }
 
+}
+
 const mapStateToProps = (state) =>{
   return {
-    ...state
+    player: state.player,
+    // noodles: state.noodles,
+    monsters: state.monsters
   }
 }
 
+
 export default connect(mapStateToProps)(FightBarCont)
 
+// handleDmg={this.handleDamage}
+//  attack={this.props.player.data
+//    //filter to not include attack.id of 2 depending on monster causing collision
+//    ? this.props.player.data.player_attacks.filter(attack => attack.id !==3) : null}
+//
+// hp={this.props.player.data ?
+// this.props.player.data.hp : null}
 //

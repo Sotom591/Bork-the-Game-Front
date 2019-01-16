@@ -23,8 +23,8 @@ const Map = (props) => {
         position: 'relative',
         top: '0px',
         left: '0px',
-        width: '888px',
-        height: '448px',
+        width: '880px',
+        height: '440px',
         // backgroundColor: '#7fe8b7',
         border: '4px solid black'
       }}

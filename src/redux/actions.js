@@ -2,11 +2,12 @@
 
 //action types
 export const MOVE_PLAYER = 'MOVE_PLAYER'
-export const MOVE_NOODLES = 'MOVE_NOODLES'
+export const MOVE_MONSTER = 'MOVE_MONSTER'
 export const FETCHED_MONSTERS = 'FETCHED_MONSTERS'
 export const FETCHED_PLAYER = 'FETCHED_PLAYER'
 export const FETCHING_MONSTERS = 'FETCHING_MONSTERS'
 export const FETCHING_PLAYER = 'FETCHING_PLAYER'
+export const DMG_TO_MON = 'DMG_TO_MON'
 // export const PLAYER_LOCATION = 'PLAYER_LOCATION'
 
 
@@ -22,13 +23,19 @@ export function movePlayer(direction, spritepx, indexWalk){
   }
 }
 
-export function moveNoodles(direction){
+export function moveMonster(direction){
   return{
-    type: MOVE_NOODLES,
+    type: MOVE_MONSTER,
     payload: direction
   }
 }
 
+export function decMonsterHp(hp){
+  return{
+    type: DMG_TO_MON,
+    hp
+  }
+}
 // export function playerLocation(facing){
 //   return{
 //     type: PLAYER_LOCATION,
@@ -46,7 +53,7 @@ export function fetchingMonsters(){
   }
 }
 
-export function fetchedMonsters(monsters){
+function fetchedMonsters(monsters){
   return{
     type: FETCHED_MONSTERS,
     monsters
@@ -55,7 +62,7 @@ export function fetchedMonsters(monsters){
 
 export function fetchingPlayer(){
   return (dispatch) =>{
-    fetch('http://localhost:3001/players')
+    fetch('http://localhost:3001/players/1')
     .then(res => res.json())
     .then(player => {
       dispatch(fetchedPlayer(player))
@@ -63,7 +70,7 @@ export function fetchingPlayer(){
   }
 }
 
-export function fetchedPlayer(player){
+function fetchedPlayer(player){
   return{
     type: FETCHED_PLAYER,
     player
