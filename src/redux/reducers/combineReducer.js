@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
   }),
   monsters: combineReducers({
     data: monsterDataReducer,
-    position: monstMovementReducer
+    // position: monstMovementReducer
   })
 })
 

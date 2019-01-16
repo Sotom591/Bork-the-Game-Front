@@ -23,12 +23,26 @@ export function movePlayer(direction, spritepx, indexWalk){
   }
 }
 
-export function moveMonster(direction){
+
+
+export function moveMonster(monsterId, {x, y}){
+
   return{
     type: MOVE_MONSTER,
-    payload: direction
+    monsterId,
+    payload: {x, y}
   }
 }
+
+
+// export function moveMonster(direction){
+//
+//   return{
+//     type: MOVE_MONSTER,
+//     payload: direction
+//   }
+// }
+
 
 export function decMonsterHp(monsterId, dmg){
   return {

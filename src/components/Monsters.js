@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import noodles from '../images/angrynoodlest.png';
 import { MONSTER_SIZE } from '../constants.js'
 import { moveMonster} from '../redux/actions';
 
@@ -11,6 +10,8 @@ class Monsters extends Component {
 
 componentDidMount(){
   this.movementInterval()
+
+
   // this.movementInterval = setInterval(this.monsterLogic, 2000)
 }
 //
@@ -19,26 +20,23 @@ movementInterval = () =>{
 }
 
 monsterLogic = () =>{
-  const {x, y} = this.props.monsters.position;
+  // const {x, y} = this.props.monsters.position;
+  // const {x, y} = {this.props.monsters.x, this.props.monsters.data.y}
+  let id = this.props.monster.id
+  let x = this.props.monster.x
+  let y = this.props.monster.y
+  // debugger
 
   if(x < this.props.player.position.x){
-    this.props.dispatch(
-      moveMonster({x: (x + MONSTER_SIZE), y}
-    )) }
+      x += MONSTER_SIZE }
   if(x > this.props.player.position.x){
-    this.props.dispatch(
-      moveMonster({x: (x - MONSTER_SIZE), y}
-    )) }
-
+      x -= MONSTER_SIZE }
   if(y < this.props.player.position.y){
-    this.props.dispatch(
-      moveMonster({x, y: (y + MONSTER_SIZE)}
-    )) }
-
+      y += MONSTER_SIZE }
   if(y > this.props.player.position.y){
+      y -= MONSTER_SIZE }
     this.props.dispatch(
-      moveMonster({x, y: (y - MONSTER_SIZE)}
-    )) }
+      moveMonster(id, {x, y}))
 }
 
 render(){
@@ -46,9 +44,9 @@ render(){
     <div
     style={{
       position: 'absolute',
-      top: this.props.monsters.position.y,
-      left: this.props.monsters.position.x,
-      backgroundImage: `url(${noodles})`,
+      top: this.props.monster.y,
+      left: this.props.monster.x,
+      backgroundImage: `url(${this.props.monster.img})`,
       backgroundPosition: '0 0',
       width: '46px',
       height: '48px'
@@ -60,7 +58,6 @@ render(){
 
 const mapStateToProps = (state) =>{
   return{
-    monsters: state.monsters,
     player: state.player
   }
 }

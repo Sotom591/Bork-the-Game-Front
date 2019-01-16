@@ -22,8 +22,15 @@ class FightBarCont extends Component{
   }
 
 checkCollision = () => {
-  if(this.props.player.position.x === this.props.monsters.position.x && this.props.player.position.y === this.props.monsters.position.y){
-  return true}
+    if(
+      (this.props.player.position.x === this.props.monsters.data.filter(monster => monster.x)) && (this.props.player.position.y === this.props.monsters.data.filter(monster => monster.y))
+    )
+    {
+      console.log("collided")
+    }
+
+  // if(this.props.player.position.x === this.props.monsters.data[0].x && this.props.player.position.y === this.props.monsters.data[0].y){
+  // return true}
 }
 
 dmgMonster = (attack) => {
