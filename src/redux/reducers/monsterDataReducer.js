@@ -15,7 +15,7 @@ const monsterDataReducer = (state = [], action) => {
     case "MOVE_MONSTER":
       return state.map(monster => {
         if(monster.id === action.monsterId){
-          return{
+          return {
             ...monster,
             x: action.payload.x,
             y: action.payload.y
@@ -24,6 +24,14 @@ const monsterDataReducer = (state = [], action) => {
           return monster
         }
       })
+    // case "FIGHTING_MONSTER":
+    //   return state.find(monster =>{
+    //     if(monster.id === action.monsterId){
+    //       return {
+    //         monster
+    //       }
+    //     }
+    //   })
     case "FETCHED_MONSTERS":
       return action.monsters
     default:
@@ -31,17 +39,8 @@ const monsterDataReducer = (state = [], action) => {
   }
 }
 
-// return {
-//           ...painting,
-//           title: action.payload.title,
-//           artist: {
-//             ...painting.artist,
-//             name: action.payload.name,
-//             birthday: action.payload.birthday,
-//             deathday: action.payload.deathday
-//           }
-//         };
-
+//if i need a capMonstArray that both monster comp and fightbar needs to know about, should prob live in store.
+//can I make the reducers sep from monster data? idts
 
 
 

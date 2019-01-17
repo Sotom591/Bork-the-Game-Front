@@ -25,7 +25,6 @@ const Map = (props) => {
         left: '0px',
         width: '880px',
         height: '440px',
-        // backgroundColor: '#7fe8b7',
         border: '4px solid black'
       }}
     >

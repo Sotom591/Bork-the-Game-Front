@@ -17,20 +17,33 @@ class FightBarCont extends Component{
 
 
   componentDidMount(){
+    console.log("component mounted")
     this.props.dispatch(fetchingPlayer())
     this.props.dispatch(fetchingMonsters())
+
   }
 
 checkCollision = () => {
-    if(
-      (this.props.player.position.x === this.props.monsters.data.filter(monster => monster.x)) && (this.props.player.position.y === this.props.monsters.data.filter(monster => monster.y))
-    )
-    {
-      console.log("collided")
-    }
+let monsterCoords = this.props.monsters.data.filter(monster =>{
+    if(this.props.player.position.x === monster.x && this.props.player.position.y === monster.y){
 
-  // if(this.props.player.position.x === this.props.monsters.data[0].x && this.props.player.position.y === this.props.monsters.data[0].y){
-  // return true}
+      return true
+    }
+  })
+
+return monsterCoords.length > 0
+}
+
+
+checkCollision = () => {
+let monsterCoords = this.props.monsters.data.filter(monster =>{
+    if(this.props.player.position.x === monster.x && this.props.player.position.y === monster.y){
+
+      return true
+    }
+  })
+
+return monsterCoords.length > 0
 }
 
 dmgMonster = (attack) => {
@@ -45,6 +58,7 @@ render(){
 
   return(
   <div>
+
   {this.checkCollision() ?
   <div
     style={{
@@ -67,14 +81,16 @@ render(){
         }}
         >
         <MonsterFightCard/>
+        <PlayerAttackMoves dmgMonster={this.dmgMonster} attack={this.props.player.data.player_attacks.filter(attack => attack.id !==3)}/>
         <MonsterHPBar  hp={this.props.monsters.data[0].hp}/>
         <PlayerFightCard/>
         <PlayerHPBar hp={this.props.player.data.hp}/>
-        <PlayerAttackMoves dmgMonster={this.dmgMonster} attack={this.props.player.data.player_attacks.filter(attack => attack.id !==3)}/>
+
+
 
       </div>
     </div>
-       : null}
+    : null}
     </div>
   )
 }
@@ -91,12 +107,3 @@ const mapStateToProps = (state) =>{
 
 
 export default connect(mapStateToProps)(FightBarCont)
-
-// handleDmg={this.handleDamage}
-//  attack={this.props.player.data
-//    //filter to not include attack.id of 2 depending on monster causing collision
-//    ? this.props.player.data.player_attacks.filter(attack => attack.id !==3) : null}
-//
-// hp={this.props.player.data ?
-// this.props.player.data.hp : null}
-//

@@ -4,7 +4,7 @@ import monstMovementReducer from './monstMovementReducer';
 import playerSpriteReducer from './playerSpriteReducer';
 import monsterDataReducer from './monsterDataReducer';
 import playerDataReducer from './playerDataReducer';
-import monsterHpReducer from './monsterHpReducer';
+
 // import indexReducer from './indexReducer'
 
 const rootReducer = combineReducers({
