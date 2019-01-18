@@ -4,7 +4,7 @@ import React from 'react';
 const MonsterFightCard = (props) => {
   return(
     <div className='monsterPic'>
-      monster pic
+      <img alt="monster" src={props.img} />
     </div>
   )
 }

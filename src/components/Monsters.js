@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { MONSTER_SIZE } from '../constants.js'
-import { setOpponent, moveMonster} from '../redux/actions';
+import { setOpponent, moveMonster, killMonster} from '../redux/actions';
 
 
 
@@ -10,19 +10,49 @@ class Monsters extends Component {
 
 componentDidMount(){
   this.movementInterval = setInterval(this.monsterMoveLogic, this.props.monster.speed)
-  this.collisionChecker = setInterval(this.checkCollision, 50)
+  this.collisionChecker = setInterval(this.monsterLifecycle, 100)
 }
-
-componentDidUpdate(){
-  this.freezeMonsters = this.props.player.opponent ? clearInterval(this.movementInterval) : null
-}
-checkCollision = () => {
-  const monster = this.props.monster
-  if(this.props.player.position.x === monster.x && this.props.player.position.y === monster.y){
-    return this.props.dispatch(setOpponent(monster))
+componentDidUpdate(prevProps){
+  if (prevProps.player.opponent === null && this.props.player.opponent) {
+    clearInterval(this.movementInterval)
+  } else if (prevProps.player.opponent && this.props.player.opponent === null) {
+    this.movementInterval = setInterval(this.monsterMoveLogic, this.props.monster.speed)
   }
 }
 
+
+componentWillUnmount(){
+  console.log("unmounting");
+  clearInterval(this.movementInterval)
+  clearInterval(this.collisionChecker)
+}
+
+monsterLifecycle = () => {
+  this.checkCollision()
+  if(this.props.player.opponent && this.props.player.opponent.id === this.props.monster.id){
+    this.checkHp()
+  }
+}
+
+checkCollision = () => {
+  const monster = this.props.monster
+  if(this.props.player.position.x === monster.x && this.props.player.position.y === monster.y){
+    this.props.dispatch(setOpponent(monster))
+
+  }
+}
+
+checkHp = () =>{
+  const monster = this.props.monster
+  const monsters = this.props.monsters.data
+  let id = this.props.monster.id
+  let newMonsters = monsters.filter(monster => monster.id !== id)
+
+  if(monster.hp <= 0){
+    this.props.dispatch(killMonster(newMonsters))
+    this.props.dispatch({type: "CLEAR"})
+  }
+}
 
 monsterMoveLogic = () =>{
   let id = this.props.monster.id
@@ -42,7 +72,12 @@ monsterMoveLogic = () =>{
       y -= MONSTER_SIZE
   }
     this.props.dispatch(moveMonster(id, {x, y}))
+
 }
+
+// checkMonsterCollision
+
+//check coords before move happens
 
 render(){
   return(
@@ -62,7 +97,8 @@ render(){
 
 const mapStateToProps = (state) =>{
   return{
-    player: state.player
+    player: state.player,
+    monsters: state.monsters
   }
 }
 

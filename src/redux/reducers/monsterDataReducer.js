@@ -24,6 +24,8 @@ const monsterDataReducer = (state = [], action) => {
           return monster
         }
       })
+    case "KILL_MONSTER":
+      return action.newMonsters
     case "FETCHED_MONSTERS":
       return action.monsters
     default:

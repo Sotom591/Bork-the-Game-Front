@@ -4,7 +4,7 @@ import React from 'react';
 const PlayerFightCard = (props) => {
   return(
   <div className='playerPic'>
-    player pic
+    <img alt="pupper" src="https://i.imgur.com/lm5YURU.png" />
   </div>
   )
 }

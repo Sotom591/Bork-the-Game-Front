@@ -42,10 +42,10 @@ render(){
            border: '4px solid black'
         }}
         >
-        <MonsterFightCard/>
+        <MonsterFightCard img={this.props.monster.img}/>
         <PlayerAttackMoves dmgMonster={this.dmgMonster} attack={this.props.player ? this.props.player.player_attacks.filter(attack => attack.id !==3) : null}/>
         <MonsterHPBar  hp={this.props.monster ? this.props.monster.hp : null}/>
-        <PlayerFightCard/>
+        <PlayerFightCard />
         <PlayerHPBar hp={this.props.player ? this.props.player.hp : null}/>
       </div>
     </div>
