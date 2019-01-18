@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { SPRITE_SIZE, MONSTER_SIZE } from '../constants.js'
-// import FightBar from '../components/FightBar'
-import { fetchingPlayer, fetchingMonsters, decMonsterHp } from '../redux/actions';
+import { decMonsterHp } from '../redux/actions';
 
 import PlayerAttackMoves from '../components/PlayerAttackMoves.js'
 import PlayerFightCard from '../components/PlayerFightCard.js'
@@ -11,19 +9,15 @@ import MonsterFightCard from '../components/MonsterFightCard.js'
 import MonsterHPBar from '../components/MonsterHPBar.js'
 
 
-
-
 class FightBarCont extends Component{
 
+dmgMonster = (attack) => {
+  let monster = this.props.monster ? this.props.monster : null
+  let dmg = (monster.hp - attack.dmg)
+  this.props.decMonsterHp(monster.id, dmg)
+  console.log(dmg)
 
-
-// dmgMonster = (attack) => {
-//   // let hitDmg = this.props.monsters.data[1].hp - attack.dmg
-//   this.props.dispatch(decMonsterHp(2, attack.dmg))
-//   // console.log(hitDmg)
-//
-// }
-
+}
 
 render(){
 
@@ -49,7 +43,10 @@ render(){
         }}
         >
         <MonsterFightCard/>
-
+        <PlayerAttackMoves dmgMonster={this.dmgMonster} attack={this.props.player ? this.props.player.player_attacks.filter(attack => attack.id !==3) : null}/>
+        <MonsterHPBar  hp={this.props.monster ? this.props.monster.hp : null}/>
+        <PlayerFightCard/>
+        <PlayerHPBar hp={this.props.player ? this.props.player.hp : null}/>
       </div>
     </div>
   )
@@ -57,17 +54,5 @@ render(){
 
 }
 
-const mapStateToProps = (state) =>{
-  return {
-    player: state.player,
-    monsters: state.monsters
-  }
-}
-//
-// <PlayerAttackMoves dmgMonster={this.dmgMonster} attack={this.props.player.data.player_attacks.filter(attack => attack.id !==3)}/>
-// <MonsterHPBar  hp={this.props.monsters.data[0].hp}/>
-// <PlayerFightCard/>
-// <PlayerHPBar hp={this.props.player.data.hp}/>
 
-
-export default connect(mapStateToProps)(FightBarCont)
+export default connect(null, {decMonsterHp})(FightBarCont)

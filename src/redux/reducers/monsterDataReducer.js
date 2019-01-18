@@ -6,7 +6,7 @@ const monsterDataReducer = (state = [], action) => {
         if (monster.id === action.monsterId){
           return{
             ...monster,
-            hp: monster.hp - action.payload
+            hp: action.payload
           }
         } else {
           return monster

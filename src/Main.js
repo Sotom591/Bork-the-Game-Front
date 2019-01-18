@@ -9,8 +9,6 @@ class Main extends Component {
 
   componentDidMount(){
     this.props.dispatch(fetchingPlayer())
-    this.props.dispatch(fetchingMonsters())
-
   }
 
   render() {
@@ -18,7 +16,7 @@ class Main extends Component {
       <div className="Main">
         <World />
         {this.props.player.opponent ?
-         <FightBarCont monster={this.props.monsters.data} player={this.props.player.data} />
+         <FightBarCont monster={this.props.player.opponent} player={this.props.player.data} />
         :null }
       </div>
     );
@@ -27,8 +25,7 @@ class Main extends Component {
 
 const mapStateToProps = (state) =>{
   return {
-    player: state.player,
-    monsters: state.monsters,
+    player: state.player
   }
 }
 
