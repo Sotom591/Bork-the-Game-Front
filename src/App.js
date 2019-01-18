@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import World from './containers/World'
-import FightBarCont from './containers/FightBarCont'
+import Main from './Main.js'
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <World />
-        <FightBarCont />
+        <Main />
       </div>
     );
   }

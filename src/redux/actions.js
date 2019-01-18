@@ -8,6 +8,7 @@ export const FETCHED_PLAYER = 'FETCHED_PLAYER'
 export const FETCHING_MONSTERS = 'FETCHING_MONSTERS'
 export const FETCHING_PLAYER = 'FETCHING_PLAYER'
 export const DMG_TO_MON = 'DMG_TO_MON'
+export const FIGHT_MON = 'FIGHT_MON'
 // export const PLAYER_LOCATION = 'PLAYER_LOCATION'
 
 
@@ -24,7 +25,6 @@ export function movePlayer(direction, spritepx, indexWalk){
 }
 
 
-
 export function moveMonster(monsterId, {x, y}){
 
   return{
@@ -34,14 +34,12 @@ export function moveMonster(monsterId, {x, y}){
   }
 }
 
-
-// export function moveMonster(direction){
-//
-//   return{
-//     type: MOVE_MONSTER,
-//     payload: direction
-//   }
-// }
+export function setOpponent(monster){
+  return{
+    type: FIGHT_MON,
+    payload: monster
+  }
+}
 
 
 export function decMonsterHp(monsterId, dmg){
@@ -93,3 +91,21 @@ function fetchedPlayer(player){
     player
   }
 }
+
+// export function moveMonsterX(monsterId, x){
+//
+//   return{
+//     type: MOVE_MONSTERX,
+//     monsterId,
+//     payload: x
+//   }
+// }
+//
+// export function moveMonsterY(monsterId, y){
+//
+//   return{
+//     type: MOVE_MONSTERY,
+//     monsterId,
+//     payload: y
+//   }
+// }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { MONSTER_SIZE } from '../constants.js'
-import { moveMonster} from '../redux/actions';
+import { setOpponent, moveMonster} from '../redux/actions';
 
 
 
@@ -9,33 +9,39 @@ class Monsters extends Component {
 
 
 componentDidMount(){
-  this.movementInterval()
-  // this.movementInterval = setInterval(this.monsterLogic, 2000)
+  this.movementInterval = setInterval(this.monsterMoveLogic, this.props.monster.speed)
+  this.collisionChecker = setInterval(this.checkCollision, 50)
 }
-//move monsters until a monster is added into a capMonst array capMonstArray.length > 0 ? stop moving, also, monsters will be added to capMonstArray and taken out of monster array so they are no longer rendered on the board
 
-movementInterval = () =>{
-  setInterval(this.monsterMoveLogic, this.props.monster.speed)
+componentDidUpdate(){
+  this.freezeMonsters = this.props.player.opponent ? clearInterval(this.movementInterval) : null
 }
+checkCollision = () => {
+  const monster = this.props.monster
+  if(this.props.player.position.x === monster.x && this.props.player.position.y === monster.y){
+    return this.props.dispatch(setOpponent(monster))
+  }
+}
+
 
 monsterMoveLogic = () =>{
-  // const {x, y} = this.props.monsters.position;
-  // const {x, y} = {this.props.monsters.x, this.props.monsters.data.y}
   let id = this.props.monster.id
   let x = this.props.monster.x
   let y = this.props.monster.y
-  // debugger
 
   if(x < this.props.player.position.x){
-      x += MONSTER_SIZE }
+      x += MONSTER_SIZE
+  }
   if(x > this.props.player.position.x){
-      x -= MONSTER_SIZE }
+      x -= MONSTER_SIZE
+  }
   if(y < this.props.player.position.y){
-      y += MONSTER_SIZE }
+      y += MONSTER_SIZE
+  }
   if(y > this.props.player.position.y){
-      y -= MONSTER_SIZE }
-    this.props.dispatch(
-      moveMonster(id, {x, y}))
+      y -= MONSTER_SIZE
+  }
+    this.props.dispatch(moveMonster(id, {x, y}))
 }
 
 render(){
@@ -51,8 +57,7 @@ render(){
       height: '48px'
     }}
     />
-    )
-  }
+  )}
 }
 
 const mapStateToProps = (state) =>{
