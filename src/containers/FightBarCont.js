@@ -38,7 +38,6 @@ render(){
            left: '0px',
            width: '880px',
            height: '240px',
-           backgroundColor: 'tan',
            border: '4px solid black'
         }}
         >

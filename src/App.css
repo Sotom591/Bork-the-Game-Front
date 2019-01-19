@@ -7,7 +7,8 @@
 .fightBar{
 display: grid;
 grid-template-columns: 10% 30% 20% 30% 10%;
-grid-template-rows: 33% 10% 32% 10% 15%;
+grid-template-rows: 10% 31% 29% 10% 20%;
+background-image: url("https://i.imgur.com/PFg4L0H.png?1")
 }
 
 
@@ -17,7 +18,10 @@ grid-template-rows: 33% 10% 32% 10% 15%;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 3;
-  align-self: end
+  align-self: end;
+  font-size: small;
+  font-weight: bold;
+  color: white
 }
 
 
@@ -25,8 +29,11 @@ grid-template-rows: 33% 10% 32% 10% 15%;
   text-align: center;
   grid-column-start: 4;
   grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  font-size: small;
+  font-weight: bold;
+  color: white
 }
 
 
@@ -70,8 +77,8 @@ grid-template-rows: 33% 10% 32% 10% 15%;
 .monsterBar{
   grid-column-start: 4;
   grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
   justify-self: center;
   align-self: stretch;
   -webkit-box-sizing: border-box;
@@ -111,7 +118,7 @@ grid-template-rows: 33% 10% 32% 10% 15%;
   grid-column-end: 2;
   grid-row-start: 5;
   grid-row-end: 5;
-  align-self: center;
+  align-self: top;
 }
 
 .monsterMoves{
