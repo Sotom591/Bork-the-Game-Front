@@ -15,7 +15,8 @@ componentDidMount(){
 componentDidUpdate(prevProps){
   if (prevProps.player.opponent === null && this.props.player.opponent) {
     clearInterval(this.movementInterval)
-  } else if (prevProps.player.opponent && this.props.player.opponent === null) {
+  } else if (prevProps.player.opponent && this.props.player.opponent === null)
+  {
     this.movementInterval = setInterval(this.monsterMoveLogic, this.props.monster.speed)
   }
 }
