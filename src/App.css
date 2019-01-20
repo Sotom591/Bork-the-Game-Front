@@ -1,17 +1,40 @@
 
-
-.home{
-
-  display: grid;
-  grid-template-columns: 10% 70% 10%;
-  grid-template-rows: 10% 30% 50% 10%;
+#root{
+  min-height: inherit;
 }
 
+.App{
+  min-height: inherit;
+}
+
+.home-cont{
+  min-height: inherit;
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  grid-template-rows: 20px 300px 500px;
+}
+
+.ui.raised.very.padded.text.container.segment{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+
+}
+
+.start-screen{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  align-self: center;
+  justify-self: center;
+}
 .fightBar{
-display: grid;
-grid-template-columns: 10% 30% 20% 30% 10%;
-grid-template-rows: 10% 31% 29% 10% 20%;
-background-image: url("https://i.imgur.com/PFg4L0H.png?1")
+  display: grid;
+  grid-template-columns: 10% 30% 20% 30% 10%;
+  grid-template-rows: 10% 31% 29% 10% 20%;
+  background-image: url("https://i.imgur.com/PFg4L0H.png?1")
 }
 
 
@@ -131,7 +154,34 @@ background-image: url("https://i.imgur.com/PFg4L0H.png?1")
   grid-row-end: 3;
 }
 
-/* .worldMap{
-  background-image: url('https://i.imgur.com/mh2ASbP.png')
+.tile{
+  display: inline-flex;
+}
 
-} */
+.floor{
+  background-image: url('./images/floortile1.png')
+}
+
+.walltop{
+  background-image: url('./images/walltop.png')
+}
+
+.midwalltop{
+  background-image: url('./images/midwalltop.png')
+}
+
+.wallbottom{
+  background-image: url('./images/wallbottom.png')
+}
+
+.midwallbottom{
+  background-image: url('./images/midwallbottom.png')
+}
+
+.table{
+  background-image: url('./images/tablewtile.png')
+}
+
+.door{
+  background-image: url('./images/door.png')
+}

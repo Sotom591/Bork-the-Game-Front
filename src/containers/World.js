@@ -27,7 +27,7 @@ componentDidMount(){
         <Player />
 
         { this.props.monsters.data.map(monster => <Monsters key={monster.id}  monster={monster}/>)}
-
+    
       </div>
       )
     }

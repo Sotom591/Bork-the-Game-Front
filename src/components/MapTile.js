@@ -1,6 +1,6 @@
 import React from 'react'
 import { SPRITE_SIZE } from '../constants.js'
-import '../worldStyles.css'
+import '../App.css'
 
 const MapTile = (props) =>{
   const getTileType = (type) =>{
@@ -8,11 +8,15 @@ const MapTile = (props) =>{
       case 0:
         return 'floor'
       case 5:
-        return 'door'
-      case 6:
         return 'table'
+      case 6:
+        return 'walltop'
       case 7:
-        return 'wall'
+        return 'midwalltop'
+      case 8:
+        return 'wallbottom'
+      case 9:
+        return 'midwallbottom'
       default:
         return null
     }
@@ -22,7 +26,8 @@ const MapTile = (props) =>{
     <div className={`tile ${getTileType(props.tile)}`}
       style={{
         height: SPRITE_SIZE,
-        width: SPRITE_SIZE
+        width: SPRITE_SIZE,
+        color: 'rgba(0, 0, 0, 0)'
       }}
     >
   |
