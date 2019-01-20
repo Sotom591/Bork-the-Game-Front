@@ -3,7 +3,7 @@ import './App.js';
 import { connect } from 'react-redux';
 import World from './containers/World';
 import FightBarCont from './containers/FightBarCont';
-import {fetchingPlayer, fetchingMonsters }  from './redux/actions.js';
+import {fetchingPlayer}  from './redux/actions.js';
 
 class Main extends Component {
 

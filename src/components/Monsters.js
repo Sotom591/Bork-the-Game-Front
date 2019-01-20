@@ -9,6 +9,9 @@ class Monsters extends Component {
 
 
 componentDidMount(){
+  // window.addEventListener('keydown', (e) => {
+  //   this.startMovementInterval(e)
+  // })
   this.movementInterval = setInterval(this.monsterMoveLogic, this.props.monster.speed)
   this.collisionChecker = setInterval(this.monsterLifecycle, 100)
 }
@@ -21,7 +24,19 @@ componentDidUpdate(prevProps){
   }
 }
 
+// startMovementInterval = (e) => {
+//   e.preventDefault()
+//   switch(e.keyCode){
+//   case 32:
+//     return this.movementInterval()
+//   default:
+//     console.log(e.keyCode)
+//   }
+// }
 
+// movementInterval = () => {
+//   setInterval(this.monsterMoveLogic, this.props.monster.speed)
+// }
 componentWillUnmount(){
   console.log("unmounting");
   clearInterval(this.movementInterval)

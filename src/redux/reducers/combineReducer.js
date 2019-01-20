@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import playerMovementReducer from './playerMovementReducer';
-import monstMovementReducer from './monstMovementReducer';
 import playerSpriteReducer from './playerSpriteReducer';
 import monsterDataReducer from './monsterDataReducer';
 import playerDataReducer from './playerDataReducer';
@@ -17,7 +16,6 @@ const rootReducer = combineReducers({
   }),
   monsters: combineReducers({
     data: monsterDataReducer,
-    // position: monstMovementReducer
   })
 })
 
