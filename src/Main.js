@@ -3,9 +3,12 @@ import './App.js';
 import { connect } from 'react-redux';
 import World from './containers/World';
 import FightBarCont from './containers/FightBarCont';
+import WinCont from './containers/WinCont'
 import {fetchingPlayer}  from './redux/actions.js';
 
 class Main extends Component {
+
+
 
   componentDidMount(){
     this.props.dispatch(fetchingPlayer())
@@ -18,6 +21,7 @@ class Main extends Component {
         {this.props.player.opponent ?
          <FightBarCont monster={this.props.player.opponent} player={this.props.player.data} />
         :null }
+        {this.props.player.kills.count === 3 ? <WinCont/> : null}
       </div>
     );
   }

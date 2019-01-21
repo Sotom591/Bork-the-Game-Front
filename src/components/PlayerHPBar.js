@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const PlayerHPBar = (props) => {
-  console.log(props.hp)
   return(
     <div className='playerBar'>
     <div className="playerHP"

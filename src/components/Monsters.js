@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { MONSTER_SIZE } from '../constants.js'
-import { setOpponent, moveMonster, killMonster} from '../redux/actions';
+import { setOpponent, moveMonster, killMonster, trackDeaths} from '../redux/actions';
 
 
 
 class Monsters extends Component {
+
 
 
 componentDidMount(){
@@ -67,6 +68,7 @@ checkHp = () =>{
   if(monster.hp <= 0){
     this.props.dispatch(killMonster(newMonsters))
     this.props.dispatch({type: "CLEAR"})
+    this.props.dispatch(trackDeaths())
   }
 }
 
@@ -94,6 +96,7 @@ monsterMoveLogic = () =>{
 // checkMonsterCollision
 
 //check coords before move happens
+
 
 render(){
   return(

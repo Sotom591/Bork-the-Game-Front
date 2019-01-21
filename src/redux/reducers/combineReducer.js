@@ -4,6 +4,7 @@ import playerSpriteReducer from './playerSpriteReducer';
 import monsterDataReducer from './monsterDataReducer';
 import playerDataReducer from './playerDataReducer';
 import currentOpponentReducer from './currentOpponentReducer'
+import deathTrackerReducer from './deathTrackerReducer'
 
 // import indexReducer from './indexReducer'
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     spritepx: playerSpriteReducer,
     data: playerDataReducer,
     opponent: currentOpponentReducer,
+    kills: deathTrackerReducer
   }),
   monsters: combineReducers({
     data: monsterDataReducer,

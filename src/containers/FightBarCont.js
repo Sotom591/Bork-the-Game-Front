@@ -15,8 +15,6 @@ dmgMonster = (attack) => {
   let monster = this.props.monster ? this.props.monster : null
   let dmg = (monster.hp - attack.dmg)
   this.props.decMonsterHp(monster.id, dmg)
-  console.log(dmg)
-
 }
 
 render(){

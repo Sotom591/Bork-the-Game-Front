@@ -10,6 +10,7 @@ export const FETCHING_PLAYER = 'FETCHING_PLAYER'
 export const DMG_TO_MON = 'DMG_TO_MON'
 export const FIGHT_MON = 'FIGHT_MON'
 export const KILL_MONSTER = 'KILL_MONSTER'
+export const TRACK_DEATHS = 'TRACK_DEATHS'
 // export const PLAYER_LOCATION = 'PLAYER_LOCATION'
 
 
@@ -55,6 +56,12 @@ export function killMonster(newMonsters){
   return {
     type: KILL_MONSTER,
     newMonsters
+  }
+}
+
+export function trackDeaths(){
+  return {
+    type: TRACK_DEATHS
   }
 }
 
