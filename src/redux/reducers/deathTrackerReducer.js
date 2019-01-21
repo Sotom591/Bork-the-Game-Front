@@ -1,5 +1,4 @@
 
-
 const deathTrackerReducer = (state = {count: 0}, action) =>{
   switch(action.type){
     case "TRACK_DEATHS":

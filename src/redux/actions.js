@@ -1,5 +1,4 @@
 
-
 //action types
 export const MOVE_PLAYER = 'MOVE_PLAYER'
 export const MOVE_MONSTER = 'MOVE_MONSTER'
@@ -11,7 +10,6 @@ export const DMG_TO_MON = 'DMG_TO_MON'
 export const FIGHT_MON = 'FIGHT_MON'
 export const KILL_MONSTER = 'KILL_MONSTER'
 export const TRACK_DEATHS = 'TRACK_DEATHS'
-// export const PLAYER_LOCATION = 'PLAYER_LOCATION'
 
 
 //action creators

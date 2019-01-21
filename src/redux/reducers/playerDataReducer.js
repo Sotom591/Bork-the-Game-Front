@@ -1,5 +1,4 @@
 
-
 const playerDataReducer = (state = null, action) => {
   switch (action.type) {
     case "FETCHED_PLAYER":
@@ -8,6 +7,5 @@ const playerDataReducer = (state = null, action) => {
       return state;
   }
 }
-
 
 export default playerDataReducer

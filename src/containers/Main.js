@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import './App.js';
 import { connect } from 'react-redux';
-import World from './containers/World';
-import FightBarCont from './containers/FightBarCont';
-import WinCont from './containers/WinCont'
-import {fetchingPlayer}  from './redux/actions.js';
+import World from './World';
+import FightBarCont from './FightBarCont';
+import WinScreenCont from './WinScreenCont'
+import LoseScreenCont from './LoseScreenCont'
+import { fetchingPlayer }  from '../redux/actions';
 
 class Main extends Component {
-
-
 
   componentDidMount(){
     this.props.dispatch(fetchingPlayer())
@@ -21,7 +19,7 @@ class Main extends Component {
         {this.props.player.opponent ?
          <FightBarCont monster={this.props.player.opponent} player={this.props.player.data} />
         :null }
-        {this.props.player.kills.count === 3 ? <WinCont/> : null}
+        {this.props.player.kills.count === 3 ? <WinScreenCont/> : null}
       </div>
     );
   }

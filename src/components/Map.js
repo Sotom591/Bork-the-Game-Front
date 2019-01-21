@@ -15,7 +15,6 @@ const Map = (props) => {
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0],
   ]
-
   return(
     <div
       className='worldMap'
@@ -25,8 +24,7 @@ const Map = (props) => {
         left: '0px',
         width: '880px',
         height: '440px',
-        border: '4px solid black',
-
+        border: '4px solid black'
       }}
     >
     {

@@ -6,8 +6,6 @@ import playerDataReducer from './playerDataReducer';
 import currentOpponentReducer from './currentOpponentReducer'
 import deathTrackerReducer from './deathTrackerReducer'
 
-// import indexReducer from './indexReducer'
-
 const rootReducer = combineReducers({
   player: combineReducers({
     position: playerMovementReducer,

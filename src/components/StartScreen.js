@@ -7,6 +7,9 @@ const StartScreen = () =>{
      <Link to={'/play'}>
         <button>Start Game</button>
       </Link>
+      <Link to={'/backstory'}>
+        <button>Story</button>
+      </Link>
     </div>
   )
 }

@@ -1,42 +1,30 @@
 import React, { Component } from 'react';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 
 
-class WinCont extends Component {
+class WinScreenCont extends Component {
 
   state = {
     showModal: true
   }
 
-  // handleWin = () => {
-  //   if(this.props.player.kills.count === 3){
-  //     console.log("you win")
-  //     this.setState({
-  //       showModal: !this.state.showModal
-  //     })
-  //   }
-  // }
-  //
-  // componentDidUpdate(){
-  //   this.handleWin()
-  // }
-
   render(){
     return(
       <div>
       <Modal open={this.state.showModal} centered={true} closeOnDocumentClick={true} basic size='small'>
-         <Header content='You Won!' />
+         <Header className='winModalH' content='You Won!'/>
          <Modal.Content>
-           <p>
+           <p className='winModalP'>
              Thanks to you, the curse has been lifted. And best of all, you're feeling very full right now.
            </p>
+           <Link to={"/"}><Button>Play Again?</Button></Link>
          </Modal.Content>
       </Modal>
       </div>
     )
   }
-
 }
 
-export default WinCont;
+export default WinScreenCont;

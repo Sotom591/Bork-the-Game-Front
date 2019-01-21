@@ -21,7 +21,6 @@ const MapTile = (props) =>{
         return null
     }
   }
-
   return(
     <div className={`tile ${getTileType(props.tile)}`}
       style={{

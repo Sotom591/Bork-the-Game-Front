@@ -7,5 +7,4 @@ const store = createStore(
   rootReducer, composeEnhancers(
     applyMiddleware(thunk)
   ))
-// console.log(store.getState());
 export default store;

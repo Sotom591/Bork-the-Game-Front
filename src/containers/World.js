@@ -11,7 +11,6 @@ componentDidMount(){
     this.props.dispatch(fetchingMonsters())
 }
 
-
   render(){
     return(
       <div
@@ -30,10 +29,10 @@ componentDidMount(){
     }
   }
 
-const mapStateToProps = (state) =>{
-  return {
-    monsters: state.monsters
+  const mapStateToProps = (state) =>{
+    return {
+      monsters: state.monsters
+    }
   }
-}
 
 export default connect(mapStateToProps)(World)

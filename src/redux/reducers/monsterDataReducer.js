@@ -33,7 +33,6 @@ const monsterDataReducer = (state = [], action) => {
   }
 }
 
-
 export default monsterDataReducer
 
 
