@@ -268,3 +268,11 @@ p{
 .door{
   background-image: url('./images/door.png')
 }
+
+.leftchair{
+  background-image: url('./images/perfchairleft.png')
+}
+
+.rightchair{
+  background-image: url('./images/perfchairright.png')
+}

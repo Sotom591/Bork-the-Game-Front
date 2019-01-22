@@ -7,8 +7,12 @@ const MapTile = (props) =>{
     switch(type){
       case 0:
         return 'floor'
-      case 5:
+      case 3:
         return 'table'
+      case 4:
+        return 'leftchair'
+      case 5:
+        return 'rightchair'
       case 6:
         return 'walltop'
       case 7:

@@ -37,7 +37,7 @@ observeImpassable = (newPos) => {
   const x = (newPos.x / SPRITE_SIZE);
   const y = (newPos.y / SPRITE_SIZE);
   const nextTile = tiles[y][x]
-  return nextTile < 5
+  return nextTile < 3
 }
 
 getNewPosition = (direction) =>{
