@@ -21,8 +21,9 @@ class FightBarCont extends Component{
   dmgPlayer = () =>{
     let monster = this.props.monster ? this.props.monster : null
     let playerDmg = (this.props.player.hp - monster.monster_attacks[0].dmg)
-    this.props.decPlayerHp(playerDmg)
-    // this.props.decPlayerHp(dmg)
+    if (this.props.monster.hp > 0){
+      this.props.decPlayerHp(playerDmg)
+    } 
   }
 
   render(){

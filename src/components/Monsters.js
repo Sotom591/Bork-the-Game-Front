@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { MONSTER_SIZE } from '../constants.js'
-import { setOpponent, moveMonster, killMonster, trackDeaths} from '../redux/actions';
+import { setOpponent, moveMonster, killMonster, trackDeaths, incPlayerHp} from '../redux/actions';
 
 
 
@@ -69,6 +69,7 @@ checkHp = () =>{
     this.props.dispatch(killMonster(newMonsters))
     this.props.dispatch({type: "CLEAR"})
     this.props.dispatch(trackDeaths())
+    this.props.dispatch(incPlayerHp())
   }
 }
 

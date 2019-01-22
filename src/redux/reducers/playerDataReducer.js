@@ -8,6 +8,11 @@ const playerDataReducer = (state = null, action) => {
         ...state,
         hp: action.payload
       }
+    case "HEAL_PLAYER":
+      return{
+        ...state,
+        hp: state.hp + 2
+      }
     default:
       return state;
   }

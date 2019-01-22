@@ -11,6 +11,7 @@ export const FIGHT_MONSTER = 'FIGHT_MONSTER'
 export const KILL_MONSTER = 'KILL_MONSTER'
 export const TRACK_DEATHS = 'TRACK_DEATHS'
 export const DMG_PLAYER = 'DMG_PLAYER'
+export const HEAL_PLAYER = 'HEAL_PLAYER'
 
 
 //action creators
@@ -54,6 +55,12 @@ export function decPlayerHp(dmg){
   return{
     type: DMG_PLAYER,
     payload: dmg
+  }
+}
+
+export function incPlayerHp(){
+  return{
+    type: HEAL_PLAYER
   }
 }
 
