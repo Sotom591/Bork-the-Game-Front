@@ -12,24 +12,68 @@
     box-sizing: inherit !important;
 }
 
-.main{
+.Main{
   box-sizing: content-box;
 }
 
+.btn{
+  padding: 5px;
+  background-color: #101090;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  width: 95px;
+}
+
+.attackBtn{
+  color: #101090;
+  font-weight: bold;
+  font-size: small;
+}
+
 .home-cont{
+  font-family: 'Press Start 2P', cursive;
   min-height: inherit;
   display: grid;
-  grid-template-columns: 50px auto 50px;
+  grid-template-columns: 50px 450px auto 450px 50px;
   grid-template-rows: 20px 300px 500px;
 }
 
-/* .ui.raised.very.padded.text.container.segment{
+.title{
+  font-weight: bolder;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  align-self: center;
+  justify-self: center;
+}
+
+.back-story{
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  grid-template-rows: 100px 400px 200px;
+}
+
+.ui.raised.very.padded.text.container.segment{
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 2;
+  border-radius: 1.286rem;
+  -webkit-box-sizing: inherit !important;
+  box-sizing: inherit !important;
+}
 
-} */
+.storyBtns{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  align-self: center;
+  justify-self: center;
+}
+
 
 .winModalH{
   text-align: center
@@ -41,13 +85,14 @@
 
 
 .start-screen{
-  grid-column-start: 2;
-  grid-column-end: 2;
+  grid-column-start: 4;
+  grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 3;
   align-self: center;
   justify-self: center;
 }
+
 .fightBar{
   display: grid;
   grid-template-columns: 10% 30% 20% 30% 10%;

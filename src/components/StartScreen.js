@@ -5,10 +5,11 @@ const StartScreen = () =>{
   return(
     <div className="start-screen">
      <Link to={'/play'}>
-        <button>Start Game</button>
+        <button className="btn">start</button>
       </Link>
+      <br/>
       <Link to={'/backstory'}>
-        <button>Story</button>
+        <button className="btn">story</button>
       </Link>
     </div>
   )
