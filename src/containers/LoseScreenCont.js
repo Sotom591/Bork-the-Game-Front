@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Icon, Modal } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
@@ -12,14 +12,14 @@ class LoseScreenCont extends Component {
 
   render(){
     return(
-      <div>
+      <div className="modal">
       <Modal open={this.state.showModal} centered={true} closeOnDocumentClick={true} basic size='small'>
-         <Header className='loseModalH' content='You Lost!'/>
+         <p className="modalH">Poor Pupper...</p>
          <Modal.Content>
-           <p className='loseModalP'>
+           <p>
              That didn't turn out too well, did it?
            </p>
-           <Link to={"/"}><Button>Try Again?</Button></Link>
+           <Link to={"/"}><button className="modalBtn">Try Again?</button></Link>
          </Modal.Content>
       </Modal>
       </div>

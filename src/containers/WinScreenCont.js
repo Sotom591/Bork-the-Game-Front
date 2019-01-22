@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Icon, Modal } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
@@ -12,14 +12,14 @@ class WinScreenCont extends Component {
 
   render(){
     return(
-      <div>
+      <div className="modal">
       <Modal open={this.state.showModal} centered={true} closeOnDocumentClick={true} basic size='small'>
-         <Header className='winModalH' content='You Won!'/>
+         <p className="modalH"> Goodboi, Bestboi! </p>
          <Modal.Content>
-           <p className='winModalP'>
+           <p>
              Thanks to you, the curse has been lifted. And best of all, you're feeling very full right now.
            </p>
-           <Link to={"/"}><Button>Play Again?</Button></Link>
+           <Link to={"/"}><button className="modalBtn" onClick="window.location.reload()">Play Again?</button></Link>
          </Modal.Content>
       </Modal>
       </div>
