@@ -1,6 +1,6 @@
 import { MOVE_PLAYER } from '../actions';
 
-const playerMovementReducer = (state = {x: 0, y: 0}, action) => {
+const playerMovementReducer = (state = {x: 0, y: 88}, action) => {
   switch (action.type) {
     case MOVE_PLAYER:
       return action.payload.direction // payload is new {x, y}

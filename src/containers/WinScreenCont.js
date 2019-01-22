@@ -12,11 +12,11 @@ class WinScreenCont extends Component {
 
   render(){
     return(
-      <div className="modal">
+      <div>
       <Modal open={this.state.showModal} centered={true} closeOnDocumentClick={true} basic size='small'>
          <p className="modalH"> Goodboi, Bestboi! </p>
          <Modal.Content>
-           <p>
+           <p className="modal">
              Thanks to you, the curse has been lifted. And best of all, you're feeling very full right now.
            </p>
            <Link to={"/"}><button className="modalBtn" onClick="window.location.reload()">Play Again?</button></Link>

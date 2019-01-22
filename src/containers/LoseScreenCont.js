@@ -12,11 +12,11 @@ class LoseScreenCont extends Component {
 
   render(){
     return(
-      <div className="modal">
+      <div>
       <Modal open={this.state.showModal} centered={true} closeOnDocumentClick={true} basic size='small'>
          <p className="modalH">Poor Pupper...</p>
          <Modal.Content>
-           <p>
+           <p className="modal">
              That didn't turn out too well, did it?
            </p>
            <Link to={"/"}><button className="modalBtn">Try Again?</button></Link>

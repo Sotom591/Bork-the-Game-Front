@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { decMonsterHp } from '../redux/actions';
-
+import { decMonsterHp, decPlayerHp } from '../redux/actions';
+import LoseScreenCont from './LoseScreenCont'
 import PlayerAttackMoves from '../components/PlayerAttackMoves.js'
 import PlayerFightCard from '../components/PlayerFightCard.js'
 import PlayerHPBar from '../components/PlayerHPBar.js'
@@ -13,8 +13,16 @@ class FightBarCont extends Component{
 
   dmgMonster = (attack) => {
     let monster = this.props.monster ? this.props.monster : null
-    let dmg = (monster.hp - attack.dmg)
-    this.props.decMonsterHp(monster.id, dmg)
+    let monsterDmg = (monster.hp - attack.dmg)
+    this.props.decMonsterHp(monster.id, monsterDmg)
+    setTimeout(this.dmgPlayer, 1000);
+  }
+
+  dmgPlayer = () =>{
+    let monster = this.props.monster ? this.props.monster : null
+    let playerDmg = (this.props.player.hp - monster.monster_attacks[0].dmg)
+    this.props.decPlayerHp(playerDmg)
+    // this.props.decPlayerHp(dmg)
   }
 
   render(){
@@ -44,6 +52,7 @@ class FightBarCont extends Component{
           <MonsterHPBar  hp={this.props.monster ? this.props.monster.hp : null}/>
           <PlayerFightCard />
           <PlayerHPBar hp={this.props.player ? this.props.player.hp : null}/>
+          {this.props.player && this.props.player.hp === 0 ? <LoseScreenCont/> : null}
         </div>
       </div>
     )
@@ -51,4 +60,4 @@ class FightBarCont extends Component{
 }
 
 
-export default connect(null, {decMonsterHp})(FightBarCont)
+export default connect(null, {decMonsterHp, decPlayerHp})(FightBarCont)

@@ -6,10 +6,11 @@ export const FETCHED_MONSTERS = 'FETCHED_MONSTERS'
 export const FETCHED_PLAYER = 'FETCHED_PLAYER'
 export const FETCHING_MONSTERS = 'FETCHING_MONSTERS'
 export const FETCHING_PLAYER = 'FETCHING_PLAYER'
-export const DMG_TO_MON = 'DMG_TO_MON'
-export const FIGHT_MON = 'FIGHT_MON'
+export const DMG_MONSTER = 'DMG_MONSTER'
+export const FIGHT_MONSTER = 'FIGHT_MONSTER'
 export const KILL_MONSTER = 'KILL_MONSTER'
 export const TRACK_DEATHS = 'TRACK_DEATHS'
+export const DMG_PLAYER = 'DMG_PLAYER'
 
 
 //action creators
@@ -17,7 +18,7 @@ export function movePlayer(direction, spritepx, indexWalk){
   return {
     type: MOVE_PLAYER,
     payload: {
-      direction, // direction === {x, y}
+      direction,
       spritepx,
       indexWalk
     }
@@ -35,7 +36,7 @@ export function moveMonster(monsterId, {x, y}){
 
 export function setOpponent(monster){
   return{
-    type: FIGHT_MON,
+    type: FIGHT_MONSTER,
     payload: monster
   }
 }
@@ -43,8 +44,15 @@ export function setOpponent(monster){
 
 export function decMonsterHp(monsterId, dmg){
   return {
-    type: DMG_TO_MON,
+    type: DMG_MONSTER,
     monsterId,
+    payload: dmg
+  }
+}
+
+export function decPlayerHp(dmg){
+  return{
+    type: DMG_PLAYER,
     payload: dmg
   }
 }

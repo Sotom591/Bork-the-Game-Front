@@ -1,7 +1,7 @@
 
 const monsterDataReducer = (state = [], action) => {
   switch (action.type) {
-    case "DMG_TO_MON":
+    case "DMG_MONSTER":
       return state.map(monster => {
         if (monster.id === action.monsterId){
           return{

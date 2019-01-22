@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import World from './World';
 import FightBarCont from './FightBarCont';
 import WinScreenCont from './WinScreenCont'
-import LoseScreenCont from './LoseScreenCont'
 import { fetchingPlayer }  from '../redux/actions';
 
 class Main extends Component {
