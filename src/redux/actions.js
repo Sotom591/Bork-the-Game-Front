@@ -12,9 +12,18 @@ export const KILL_MONSTER = 'KILL_MONSTER'
 export const TRACK_DEATHS = 'TRACK_DEATHS'
 export const DMG_PLAYER = 'DMG_PLAYER'
 export const HEAL_PLAYER = 'HEAL_PLAYER'
+export const GET_TILES = 'GET_TILES'
+
 
 
 //action creators
+export function getTiles(tiles){
+  return{
+    type: GET_TILES,
+    payload: tiles
+  }
+}
+
 export function movePlayer(direction, spritepx, indexWalk){
   return {
     type: MOVE_PLAYER,

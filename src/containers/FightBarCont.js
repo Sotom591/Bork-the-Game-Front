@@ -23,11 +23,9 @@ class FightBarCont extends Component{
     let playerDmg = (this.props.player.hp - monster.monster_attacks[0].dmg)
     if (this.props.monster.hp > 0){
       this.props.decPlayerHp(playerDmg)
-    } 
+    }
   }
-
   render(){
-
     return(
     <div
       style={{
@@ -61,4 +59,4 @@ class FightBarCont extends Component{
 }
 
 
-export default connect(null, {decMonsterHp, decPlayerHp})(FightBarCont)
+export default connect(null, { decMonsterHp, decPlayerHp })(FightBarCont)

@@ -94,10 +94,10 @@ monsterMoveLogic = () =>{
 
 }
 
-// checkMonsterCollision
-
 //check coords before move happens
-
+// checkMonsterCollision = () =>{
+//
+// }
 
 render(){
   return(

@@ -5,6 +5,7 @@ import monsterDataReducer from './monsterDataReducer';
 import playerDataReducer from './playerDataReducer';
 import currentOpponentReducer from './currentOpponentReducer'
 import deathTrackerReducer from './deathTrackerReducer'
+import mapTileReducer from './mapTileReducer'
 
 const rootReducer = combineReducers({
   player: combineReducers({
@@ -16,6 +17,9 @@ const rootReducer = combineReducers({
   }),
   monsters: combineReducers({
     data: monsterDataReducer,
+  }),
+  gameMap: combineReducers({
+    tiles: mapTileReducer
   })
 })
 

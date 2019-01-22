@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import pupperWalk from '../images/pupperWalk.png';
 import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../constants.js'
-import { movePlayer } from '../redux/actions';
+import { movePlayer, getTiles } from '../redux/actions';
 
 
 class Player extends Component{
@@ -32,40 +32,53 @@ handleKeyDown = (e) => {
   }
 }
 
-getNewPosition = (direction) =>{
+observeImpassable = (newPos) => {
+  const tiles = this.props.gameMap.tiles;
+  const x = (newPos.x / SPRITE_SIZE);
+  const y = (newPos.y / SPRITE_SIZE);
+  const nextTile = tiles[y][x]
+  return nextTile < 5
+}
 
+getNewPosition = (direction) =>{
   const {x, y} = this.props.player.position;
-  switch(direction){
-    case 'WEST':
-    if (x !== 0){
-    this.props.dispatch(
-      movePlayer({x: (x - SPRITE_SIZE), y},
-      {a:`0px`, b:`${SPRITE_SIZE*3.7}px`}
-    ))}
-      break;
-    case 'EAST':
-      if(x <= (MAP_WIDTH - SPRITE_SIZE) ){
-      this.props.dispatch(
-        movePlayer({x: (x + SPRITE_SIZE), y},
-        {a:`0px`, b:`${SPRITE_SIZE*2.3}px`}
-      ))}
-      break;
-    case 'NORTH':
-      if (y !== 0){
-      this.props.dispatch(
-        movePlayer({x, y: (y - SPRITE_SIZE)},
-        {a:`0px`, b:`${SPRITE_SIZE*1}px`}
-      ))}
-      break;
-    case 'SOUTH':
-      if(y <= (MAP_HEIGHT - SPRITE_SIZE)){
-      this.props.dispatch(
-        movePlayer({x, y: (y + SPRITE_SIZE)},
-        {a:`0px`, b:`${SPRITE_SIZE*0}px`}
-      ))}
-      break;
-    default:
-      console.log("???")
+  if (this.props.player.opponent === null){
+    switch(direction){
+      case 'WEST':
+        const newWestPos = {x: (x - SPRITE_SIZE), y}
+        if (x !== 0 && this.observeImpassable(newWestPos)){
+        this.props.dispatch(
+          movePlayer(newWestPos,
+          {a:`0px`, b:`${SPRITE_SIZE*3.7}px`}
+        ))}
+        break;
+      case 'EAST':
+        let newEastPos = {x: (x + SPRITE_SIZE), y}
+        if(x <= (MAP_WIDTH - SPRITE_SIZE) && this.observeImpassable(newEastPos)){
+        this.props.dispatch(
+          movePlayer(newEastPos,
+          {a:`0px`, b:`${SPRITE_SIZE*2.3}px`}
+        ))}
+        break;
+      case 'NORTH':
+        let newNorPos = {x, y: (y - SPRITE_SIZE)}
+        if (y !== 0 && this.observeImpassable(newNorPos)){
+        this.props.dispatch(
+          movePlayer(newNorPos,
+          {a:`0px`, b:`${SPRITE_SIZE*1}px`}
+        ))}
+        break;
+      case 'SOUTH':
+        let newSouPos = {x, y: (y + SPRITE_SIZE)}
+        if(y <= (MAP_HEIGHT - SPRITE_SIZE) && this.observeImpassable(newSouPos)){
+        this.props.dispatch(
+          movePlayer(newSouPos,
+          {a:`0px`, b:`${SPRITE_SIZE*0}px`}
+        ))}
+        break;
+      default:
+        console.log("???")
+      }
     }
   }
 
@@ -88,8 +101,48 @@ render(){
 
 const mapStateToProps = (state) =>{
   return{
-    player: state.player
+    player: state.player,
+    gameMap: state.gameMap
   }
 }
 
 export default connect(mapStateToProps)(Player);
+
+
+// getNewPosition = (direction) =>{
+//   const {x, y} = this.props.player.position;
+//   if (this.props.player.opponent === null){
+//     switch(direction){
+//       case 'WEST':
+//       if (x !== 0 && this.observeImpassable()){
+//       this.props.dispatch(
+//         movePlayer({x: (x - SPRITE_SIZE), y},
+//         {a:`0px`, b:`${SPRITE_SIZE*3.7}px`}
+//       ))}
+//         break;
+//       case 'EAST':
+//         if(x <= (MAP_WIDTH - SPRITE_SIZE) && this.observeImpassable()){
+//         this.props.dispatch(
+//           movePlayer({x: (x + SPRITE_SIZE), y},
+//           {a:`0px`, b:`${SPRITE_SIZE*2.3}px`}
+//         ))}
+//         break;
+//       case 'NORTH':
+//         if (y !== 0 && this.observeImpassable()){
+//         this.props.dispatch(
+//           movePlayer({x, y: (y - SPRITE_SIZE)},
+//           {a:`0px`, b:`${SPRITE_SIZE*1}px`}
+//         ))}
+//         break;
+//       case 'SOUTH':
+//         if(y <= (MAP_HEIGHT - SPRITE_SIZE) && this.observeImpassable()){
+//         this.props.dispatch(
+//           movePlayer({x, y: (y + SPRITE_SIZE)},
+//           {a:`0px`, b:`${SPRITE_SIZE*0}px`}
+//         ))}
+//         break;
+//       default:
+//         console.log("???")
+//       }
+//     }
+//   }

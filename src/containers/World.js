@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Player from '../components/Player';
 import Map from '../components/Map';
 import Monsters from '../components/Monsters';
-import { connect } from 'react-redux'
-import { fetchingMonsters } from '../redux/actions.js'
+import { connect } from 'react-redux';
+import { fetchingMonsters } from '../redux/actions';
 
 class World extends Component{
 
