@@ -8,14 +8,22 @@ import PlayerHPBar from '../components/PlayerHPBar.js'
 import MonsterFightCard from '../components/MonsterFightCard.js'
 import MonsterHPBar from '../components/MonsterHPBar.js'
 
-
 class FightBarCont extends Component{
+
+  state = { monsterVisible: true, playerVisible: true }
+
+  toggleMonster = () => this.setState({ monsterVisible: !this.state.monsterVisible })
+
+  togglePlayer = () => this.setState({ playerVisible: !this.state.playerVisible })
 
   dmgMonster = (attack) => {
     let monster = this.props.monster ? this.props.monster : null
     let monsterDmg = (monster.hp - attack.dmg)
     this.props.decMonsterHp(monster.id, monsterDmg)
+    this.togglePlayer()
     setTimeout(this.dmgPlayer, 1000);
+    setTimeout(this.toggleMonster, 1000)
+
   }
 
   dmgPlayer = () =>{
@@ -46,10 +54,11 @@ class FightBarCont extends Component{
              border: '4px solid black'
           }}
           >
-          <MonsterFightCard name={this.props.monster.name} img={this.props.monster.img}/>
+          <MonsterFightCard
+          visible={this.state.monsterVisible} name={this.props.monster.name} img={this.props.monster.img}/>
           <PlayerAttackMoves dmgMonster={this.dmgMonster} attack={this.props.player ? this.props.player.player_attacks.filter(attack => attack.id !==3) : null}/>
           <MonsterHPBar  hp={this.props.monster ? this.props.monster.hp : null}/>
-          <PlayerFightCard />
+          <PlayerFightCard visible={this.state.playerVisible}/>
           <PlayerHPBar hp={this.props.player ? this.props.player.hp : null}/>
           {this.props.player && this.props.player.hp === 0 ? <LoseScreenCont/> : null}
         </div>

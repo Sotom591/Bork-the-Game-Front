@@ -19,7 +19,7 @@ class LoseScreenCont extends Component {
            <p className="modal">
              That didn't turn out too well, did it?
            </p>
-           <Link to={"/"}><button className="modalBtn">Try Again?</button></Link>
+           <Link to={"/"}><button onClick="window.location.reload()" className="modalBtn">Try Again?</button></Link>
          </Modal.Content>
       </Modal>
       </div>
