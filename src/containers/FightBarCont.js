@@ -8,22 +8,30 @@ import PlayerHPBar from '../components/PlayerHPBar.js'
 import MonsterFightCard from '../components/MonsterFightCard.js'
 import MonsterHPBar from '../components/MonsterHPBar.js'
 
+
+
 class FightBarCont extends Component{
 
   state = { monsterVisible: true, playerVisible: true }
+  attackBtns = () => document.querySelectorAll('button.attackBtn')
 
   toggleMonster = () => this.setState({ monsterVisible: !this.state.monsterVisible })
 
   togglePlayer = () => this.setState({ playerVisible: !this.state.playerVisible })
 
   dmgMonster = (attack) => {
+    this.attackBtns().forEach(attack => attack.disabled = true)
+    setTimeout(this.attackCooldown, 2000 )
     let monster = this.props.monster ? this.props.monster : null
     let monsterDmg = (monster.hp - attack.dmg)
     this.props.decMonsterHp(monster.id, monsterDmg)
     this.togglePlayer()
     setTimeout(this.dmgPlayer, 1000);
     setTimeout(this.toggleMonster, 1000)
+  }
 
+  attackCooldown = () => {
+    this.attackBtns().forEach(attack => attack.disabled = false)
   }
 
   dmgPlayer = () =>{
