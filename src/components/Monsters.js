@@ -7,15 +7,11 @@ import { setOpponent, moveMonster, killMonster, trackDeaths, incPlayerHp} from '
 
 class Monsters extends Component {
 
-
-
 componentDidMount(){
-  // window.addEventListener('keydown', (e) => {
-  //   this.startMovementInterval(e)
-  // })
   this.movementInterval = setInterval(this.monsterMoveLogic, this.props.monster.speed)
   this.collisionChecker = setInterval(this.monsterLifecycle, 100)
 }
+
 componentDidUpdate(prevProps){
   if (prevProps.player.opponent === null && this.props.player.opponent) {
     clearInterval(this.movementInterval)
@@ -25,19 +21,6 @@ componentDidUpdate(prevProps){
   }
 }
 
-// startMovementInterval = (e) => {
-//   e.preventDefault()
-//   switch(e.keyCode){
-//   case 32:
-//     return this.movementInterval()
-//   default:
-//     console.log(e.keyCode)
-//   }
-// }
-
-// movementInterval = () => {
-//   setInterval(this.monsterMoveLogic, this.props.monster.speed)
-// }
 componentWillUnmount(){
   console.log("unmounting");
   clearInterval(this.movementInterval)
@@ -90,14 +73,21 @@ monsterMoveLogic = () =>{
   if(y > this.props.player.position.y){
       y -= MONSTER_SIZE
   }
-    this.props.dispatch(moveMonster(id, {x, y}))
-
+    if(!this.checkMonsterCollision(x, y)){
+      this.props.dispatch(moveMonster(id, {x, y}))
+    }
 }
 
 //check coords before move happens
-// checkMonsterCollision = () =>{
-//
-// }
+checkMonsterCollision = (newX, newY) =>{
+  for(let monster of this.props.monsters.data){
+    if(monster.x === newX && monster.y === newY){
+      return true
+    }
+  }
+    return false
+}
+
 
 render(){
   return(
