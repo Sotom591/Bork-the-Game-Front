@@ -19,6 +19,9 @@ p{
 
 .Main{
   box-sizing: content-box;
+  background-color: #482d2d;
+  /* background-color: #65363633; */
+  height: 1020px;
 }
 
 .btn{
@@ -46,6 +49,8 @@ p{
   display: grid;
   grid-template-columns: 50px 450px auto 450px 50px;
   grid-template-rows: 20px 300px 500px;
+  background-image: url("https://i.imgur.com/oFqF8Ws.png");
+  background-repeat: no-repeat;
 }
 
 .title{
@@ -108,15 +113,14 @@ p{
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 3;
-  align-self: center;
+  align-self: end;
   justify-self: center;
 }
 
 .fightBar{
   display: grid;
   grid-template-columns: 10% 30% 20% 30% 10%;
-  grid-template-rows: 8% 34% 29% 7% 21%
-;
+  grid-template-rows: 8% 34% 29% 7% 21%;
   background-image: url("https://i.imgur.com/PFg4L0H.png?1")
 }
 
@@ -235,6 +239,16 @@ p{
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 3;
+}
+
+
+.fight-log{
+  text-align: center;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  align-self: center;
 }
 
 .tile{

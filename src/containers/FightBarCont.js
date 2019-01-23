@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { decMonsterHp, decPlayerHp } from '../redux/actions';
 import LoseScreenCont from './LoseScreenCont'
-import PlayerAttackMoves from '../components/PlayerAttackMoves.js'
-import PlayerFightCard from '../components/PlayerFightCard.js'
-import PlayerHPBar from '../components/PlayerHPBar.js'
-import MonsterFightCard from '../components/MonsterFightCard.js'
-import MonsterHPBar from '../components/MonsterHPBar.js'
+import PlayerAttackMoves from '../components/PlayerAttackMoves'
+import PlayerFightCard from '../components/PlayerFightCard'
+import PlayerHPBar from '../components/PlayerHPBar'
+import MonsterFightCard from '../components/MonsterFightCard'
+import MonsterHPBar from '../components/MonsterHPBar'
 
 
 
