@@ -3,6 +3,8 @@
   min-height: inherit;
 }
 
+
+
 .App{
   min-height: inherit;
   font-family: 'Press Start 2P', cursive;
@@ -59,6 +61,17 @@ p{
   height: 1020px;
 }
 
+.home-doggo{
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  align-self: center;
+  justify-self: center;
+  margin-right: 620px;
+  margin-top: 180px;
+}
+
 .home-img{
   font-weight: bolder;
   grid-column-start: 3;
@@ -67,6 +80,7 @@ p{
   grid-row-end: 3;
   align-self: center;
   justify-self: center;
+  margin-right: -50px;
 }
 .title{
   font-weight: bolder;
