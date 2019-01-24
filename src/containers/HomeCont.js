@@ -5,7 +5,7 @@ const HomeCont = () => {
   return(
     <div className="home-cont">
     <p className="title">BORK </p>
-    <img alt="background picture" className="home-img" src="https://i.imgur.com/EoRe15h.png"/>
+    <img alt="background picture" className="home-img" src="https://i.imgur.com/OBaaIX4.png"/>
       <StartScreen />
     </div>
   )
