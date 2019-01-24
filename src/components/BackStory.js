@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom'
 const BackStory = () =>{
   return(
     <div className="back-story">
-    <div className="ui raised very padded text container segment">
+    <div id="story" className="ui raised very padded text container segment">
       <p>Your story begins with you as Bork, the neighborhood doggo. It was a regular day as you strolled the town looking for your next meal. Suddenly, a few shops over, a restaurant door swings open and a crowd of screaming humans run out. </p>
        <p>Maybe they were celebrating because everything tasted so good?</p>
       <p> Well, since no pup should ever waste a perfect opportunity for a taste test, you speed up towards the restaurant. But, as you enter, you notice something about the food seems a little... off. </p>
+    </div>
+    <div id="how-to" className="ui raised very padded text container segment">
+    <p>How To Play</p>
+    <img alt="play-keys" className="wasd-img" src="https://i.imgur.com/rM1wVgb.png" />
     </div>
     <div className="storyBtns">
        <Link to={'/'}>

@@ -95,15 +95,15 @@ p{
 
 .back-story{
   display: grid;
-  grid-template-columns: 50px auto 50px;
-  grid-template-rows: 75px 485px 200px;
+  grid-template-columns: 350px auto 350px;
+  grid-template-rows: 55px 485px 200px;
   background: #355C7D;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 1020px;
 }
 
-.ui.raised.very.padded.text.container.segment{
+#story{
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 2;
@@ -135,6 +135,26 @@ p{
 
 .modal{
   text-align: center
+}
+
+#how-to{
+  text-align: center;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  align-self: end;
+  justify-self: center;
+  border-radius: 1.286rem;
+  width: 300px;
+}
+.wasd-img{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  align-self: center;
+  justify-self: center;
 }
 
 .modalH{
