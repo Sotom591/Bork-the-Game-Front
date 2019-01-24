@@ -6,6 +6,7 @@
 .App{
   min-height: inherit;
   font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
 }
 
 p{
@@ -19,8 +20,9 @@ p{
 
 .Main{
   box-sizing: content-box;
-  background-color: #482d2d;
-  /* background-color: #65363633; */
+  background: #355C7D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 1020px;
 }
 
@@ -31,6 +33,7 @@ p{
   color: white;
   border-radius: 8px;
   width: 150px;
+  cursor: pointer;
 }
 
 .attackBtn{
@@ -41,6 +44,7 @@ p{
   border-radius: 5px;
   margin-right: 4px;
   width: 50px;
+  cursor: pointer;
 }
 
 .home-cont{
@@ -49,10 +53,21 @@ p{
   display: grid;
   grid-template-columns: 50px 450px auto 450px 50px;
   grid-template-rows: 20px 300px 500px;
-  background-image: url("https://i.imgur.com/oFqF8Ws.png");
-  background-repeat: no-repeat;
+  background: #355C7D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 1020px;
 }
 
+.home-img{
+  font-weight: bolder;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  align-self: center;
+  justify-self: center;
+}
 .title{
   font-weight: bolder;
   grid-column-start: 3;
@@ -67,7 +82,11 @@ p{
 .back-story{
   display: grid;
   grid-template-columns: 50px auto 50px;
-  grid-template-rows: 75px 450px 200px;
+  grid-template-rows: 75px 485px 200px;
+  background: #355C7D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 1020px;
 }
 
 .ui.raised.very.padded.text.container.segment{
