@@ -95,7 +95,7 @@ p{
 .back-story{
   display: grid;
   grid-template-columns: 350px auto 350px;
-  grid-template-rows: 55px 485px 200px;
+  grid-template-rows: 55px 485px 300px 170px;
   background: #355C7D;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -115,8 +115,8 @@ p{
 .storyBtns{
   grid-column-start: 2;
   grid-column-end: 2;
-  grid-row-start: 3;
-  grid-row-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 4;
   align-self: center;
   justify-self: center;
 }
@@ -138,10 +138,10 @@ p{
 
 #how-to{
   text-align: center;
-  grid-column-start: 3;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
   align-self: end;
   justify-self: center;
   border-radius: 1.286rem;
