@@ -3,8 +3,6 @@
   min-height: inherit;
 }
 
-
-
 .App{
   min-height: inherit;
   font-family: 'Press Start 2P', cursive;
@@ -82,6 +80,7 @@ p{
   justify-self: center;
   margin-right: -50px;
 }
+
 .title{
   font-weight: bolder;
   grid-column-start: 3;
@@ -342,4 +341,32 @@ p{
 
 .rightchair{
   background-image: url('./images/chairright.png')
+}
+
+.not-found{
+  display: grid;
+  grid-template-columns: 350px auto 350px;
+  grid-template-rows: 55px 485px 200px;
+  background: #355C7D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 1020px;
+}
+
+.fourofour{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  align-self: center;
+  justify-self: center;
+}
+
+.not{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  align-self: top;
+  justify-self: center;
 }
